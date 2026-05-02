@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { usePathname } from "next/navigation";
 import CurvedCorner from "../components/CurvedCorner";
 import Footer from "../components/Footer";
 import WhyJavaGNP from "../components/WhyJavaGNP";
@@ -57,6 +58,7 @@ const CAPABILITIES = [
 ];
 
 export default function AboutPage() {
+  const pathname = usePathname();
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -81,14 +83,44 @@ export default function AboutPage() {
 
       <div className="hidden xl:flex absolute top-0 right-0 bg-white rounded-bl-[32px] z-[60] pt-3 pr-5 pl-5 pb-3 items-center gap-3 shadow-sm border-b border-l border-zinc-100">
         <div className="flex items-center gap-6 mr-1">
-          {NAV_LINKS.map((l) => (
-            <a key={l.href} href={l.href} className="text-sm font-extrabold tracking-widest uppercase text-zinc-900 hover:text-brand-primary transition-colors">
-              {l.label}
-            </a>
-          ))}
+          {NAV_LINKS.map((l) => {
+            const isActive = pathname === l.href || (l.href !== '/' && pathname?.startsWith(l.href));
+            return (
+              <a
+                key={l.href}
+                href={l.href}
+                className={`relative px-4 py-2 text-sm font-extrabold tracking-widest uppercase transition-all duration-300 group flex items-center justify-center ${
+                  isActive ? "text-brand-primary" : "text-zinc-900"
+                }`}
+              >
+                {/* Hover Pill Background */}
+                {!isActive && (
+                  <span className="absolute inset-0 bg-zinc-100 rounded-xl scale-50 opacity-0 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-100 group-hover:opacity-100 z-0" />
+                )}
+                
+                {/* Active Pill Background */}
+                {isActive && (
+                  <span className="absolute inset-0 bg-brand-primary/5 border border-brand-primary/10 rounded-xl z-0 shadow-[inset_0_0_12px_rgba(220,38,38,0.02)]" />
+                )}
+
+                {/* Text & Active Dot */}
+                <span className="relative z-10 flex items-center gap-2 transition-transform duration-300 group-hover:scale-105">
+                   {isActive && (
+                     <span className="w-1.5 h-1.5 rounded-full bg-brand-primary shadow-[0_0_8px_rgba(220,38,38,0.6)] animate-pulse" />
+                   )}
+                   <span className="group-hover:text-brand-primary transition-colors duration-300">{l.label}</span>
+                </span>
+              </a>
+            );
+          })}
           <div className="flex items-center pl-2">
-            <a href="/contact" className="relative group/btn text-sm font-bold tracking-widest uppercase text-brand-primary overflow-hidden rounded-xl px-6 py-3 transition-all duration-300 border border-brand-primary/20 bg-brand-primary/5 shadow-sm hover:bg-brand-primary hover:text-white">
-              <span className="relative z-10 drop-shadow-sm transition-colors">Contact</span>
+            <a
+              href="/contact"
+              className="relative group/btn text-sm font-bold tracking-widest uppercase text-white overflow-hidden rounded-xl px-6 py-3 transition-transform hover:-translate-y-0.5 active:translate-y-0 duration-300 bg-gradient-to-b from-brand-primary/90 to-brand-primary shadow-[0_6px_16px_rgba(220,38,38,0.3),inset_0_2px_4px_rgba(255,255,255,0.4),inset_0_-4px_6px_rgba(0,0,0,0.2)] border border-white/20 backdrop-blur-md"
+            >
+              <span className="relative z-10 drop-shadow-sm">Contact</span>
+              <div className="absolute inset-0 bg-gradient-to-b from-white/30 to-transparent opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300 z-0" />
+              <div className="absolute inset-0 rounded-xl shadow-[inset_0_0_10px_rgba(255,255,255,0.3)] z-0" />
             </a>
           </div>
         </div>
@@ -122,8 +154,8 @@ export default function AboutPage() {
           />
         </motion.div>
 
-        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent z-10 pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-white z-10 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/40 to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-white/80 via-transparent to-white/80 z-10 pointer-events-none" />
         <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[600px] h-[600px] bg-brand-primary opacity-[0.03] blur-[120px] rounded-full z-10 pointer-events-none" />
 
         <div className="relative z-20 w-full max-w-[1400px] mx-auto px-6 sm:px-12 lg:px-20 mt-12 md:mt-20">
@@ -146,7 +178,7 @@ export default function AboutPage() {
             </h1>
 
             <p className="text-lg md:text-xl text-zinc-600 font-sans leading-relaxed max-w-2xl border-l-2 border-brand-primary/30 pl-6 py-2 bg-white/40 backdrop-blur-sm rounded-r-xl">
-              Java Global Access Platform FZ-LLC is established as a group-aligned operating entity within an international services framework.
+              Java Global Nexus Platform (Pvt) Ltd is established as a group-aligned operating entity within an international services framework.
             </p>
           </motion.div>
         </div>
@@ -387,7 +419,7 @@ export default function AboutPage() {
              "We are positioned as a scalable export services platform within an established international group structure, supporting operational stability and sustained foreign revenue generation through cross-border service delivery."
            </h2>
            <p className="text-white/80 font-medium tracking-widest uppercase text-sm">
-             Java Global Access Platform FZ-LLC
+             Java Global Nexus Platform (Pvt) Ltd
            </p>
          </motion.div>
       </section>

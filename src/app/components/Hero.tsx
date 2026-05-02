@@ -3,6 +3,7 @@
 import Image from "next/image";
 import CurvedCorner from "./CurvedCorner";
 import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
 
 /* ═══════════════════════════════════════════════════
    Navigation links
@@ -56,11 +57,14 @@ const STATS = [
    HERO
    ═══════════════════════════════════════════════════ */
 export default function Hero() {
+  const pathname = usePathname();
   return (
-    <section
-      id="hero"
-      className="relative w-full h-screen rounded-[32px] bg-brand-surface overflow-hidden glow-border pointer-events-auto shadow-2xl"
-    >
+    <div className="w-full bg-brand-background flex flex-col">
+      <div className="w-full h-[6px] xl:h-[10px] bg-white shrink-0" />
+      <section
+        id="hero"
+        className="relative w-full h-[calc(100vh-6px)] xl:h-[calc(100vh-10px)] rounded-b-[32px] bg-brand-surface overflow-hidden glow-border pointer-events-auto shadow-2xl"
+      >
       {/* ── Background Video Layer ── */}
       <div className="absolute inset-0 z-0 bg-brand-background pointer-events-none">
         <video
@@ -109,15 +113,36 @@ export default function Hero() {
          ══════════════════════════════════════════ */}
       <div className="hidden xl:flex absolute top-0 right-0 bg-white rounded-bl-[32px] z-[60] pt-3 pr-5 pl-5 pb-3 items-center gap-3 pointer-events-auto shadow-sm">
         <div className="flex items-center gap-6 mr-1">
-          {NAV_LINKS.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="text-sm font-extrabold tracking-widest uppercase text-gray-900 hover:text-brand-primary transition-colors"
-            >
-              {l.label}
-            </a>
-          ))}
+          {NAV_LINKS.map((l) => {
+            const isActive = pathname === l.href || (l.href !== '/' && pathname?.startsWith(l.href));
+            return (
+              <a
+                key={l.href}
+                href={l.href}
+                className={`relative px-4 py-2 text-sm font-extrabold tracking-widest uppercase transition-all duration-300 group flex items-center justify-center ${
+                  isActive ? "text-brand-primary" : "text-zinc-900"
+                }`}
+              >
+                {/* Hover Pill Background */}
+                {!isActive && (
+                  <span className="absolute inset-0 bg-zinc-100 rounded-xl scale-50 opacity-0 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-100 group-hover:opacity-100 z-0" />
+                )}
+                
+                {/* Active Pill Background */}
+                {isActive && (
+                  <span className="absolute inset-0 bg-brand-primary/5 border border-brand-primary/10 rounded-xl z-0 shadow-[inset_0_0_12px_rgba(220,38,38,0.02)]" />
+                )}
+
+                {/* Text & Active Dot */}
+                <span className="relative z-10 flex items-center gap-2 transition-transform duration-300 group-hover:scale-105">
+                   {isActive && (
+                     <span className="w-1.5 h-1.5 rounded-full bg-brand-primary shadow-[0_0_8px_rgba(220,38,38,0.6)] animate-pulse" />
+                   )}
+                   <span className="group-hover:text-brand-primary transition-colors duration-300">{l.label}</span>
+                </span>
+              </a>
+            );
+          })}
 
           {/* Contact */}
           <div className="flex items-center pl-2">
@@ -234,5 +259,6 @@ export default function Hero() {
         </div>
       </motion.div>
     </section>
+    </div>
   );
 }

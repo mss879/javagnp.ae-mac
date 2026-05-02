@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
 import CurvedCorner from "../components/CurvedCorner";
 import Footer from "../components/Footer";
 
@@ -13,6 +14,7 @@ const NAV_LINKS = [
 ] as const;
 
 export default function ContactPage() {
+  const pathname = usePathname();
   return (
     <main className="relative w-full min-h-screen bg-gray-50 overflow-hidden font-sans text-gray-900 selection:bg-brand-primary selection:text-white">
       {/* ── Background Ambient Glow (Light Mode) ── */}
@@ -56,23 +58,46 @@ export default function ContactPage() {
          ══════════════════════════════════════════ */}
       <div className="hidden xl:flex absolute top-0 right-0 bg-white rounded-bl-[32px] z-[60] pt-3 pr-5 pl-5 pb-3 items-center gap-3 pointer-events-auto shadow-sm border-b border-l border-gray-100">
         <div className="flex items-center gap-6 mr-1">
-          {NAV_LINKS.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="text-sm font-extrabold tracking-widest uppercase text-gray-900 hover:text-brand-primary transition-colors"
-            >
-              {l.label}
-            </a>
-          ))}
+          {NAV_LINKS.map((l) => {
+            const isActive = pathname === l.href || (l.href !== '/' && pathname?.startsWith(l.href));
+            return (
+              <a
+                key={l.href}
+                href={l.href}
+                className={`relative px-4 py-2 text-sm font-extrabold tracking-widest uppercase transition-all duration-300 group flex items-center justify-center ${
+                  isActive ? "text-brand-primary" : "text-zinc-900"
+                }`}
+              >
+                {/* Hover Pill Background */}
+                {!isActive && (
+                  <span className="absolute inset-0 bg-zinc-100 rounded-xl scale-50 opacity-0 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-100 group-hover:opacity-100 z-0" />
+                )}
+                
+                {/* Active Pill Background */}
+                {isActive && (
+                  <span className="absolute inset-0 bg-brand-primary/5 border border-brand-primary/10 rounded-xl z-0 shadow-[inset_0_0_12px_rgba(220,38,38,0.02)]" />
+                )}
+
+                {/* Text & Active Dot */}
+                <span className="relative z-10 flex items-center gap-2 transition-transform duration-300 group-hover:scale-105">
+                   {isActive && (
+                     <span className="w-1.5 h-1.5 rounded-full bg-brand-primary shadow-[0_0_8px_rgba(220,38,38,0.6)] animate-pulse" />
+                   )}
+                   <span className="group-hover:text-brand-primary transition-colors duration-300">{l.label}</span>
+                </span>
+              </a>
+            );
+          })}
 
           {/* Contact (Active State) */}
           <div className="flex items-center pl-2">
             <a
               href="/contact"
-              className="relative group/btn text-sm font-bold tracking-widest uppercase text-brand-primary overflow-hidden rounded-xl px-6 py-3 transition-all duration-300 border border-brand-primary/20 bg-brand-primary/5 shadow-sm"
+              className="relative group/btn text-sm font-bold tracking-widest uppercase text-white overflow-hidden rounded-xl px-6 py-3 transition-transform hover:-translate-y-0.5 active:translate-y-0 duration-300 bg-gradient-to-b from-brand-primary/90 to-brand-primary shadow-[0_6px_16px_rgba(220,38,38,0.3),inset_0_2px_4px_rgba(255,255,255,0.4),inset_0_-4px_6px_rgba(0,0,0,0.2)] border border-white/20 backdrop-blur-md"
             >
               <span className="relative z-10 drop-shadow-sm">Contact</span>
+              <div className="absolute inset-0 bg-gradient-to-b from-white/30 to-transparent opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300 z-0" />
+              <div className="absolute inset-0 rounded-xl shadow-[inset_0_0_10px_rgba(255,255,255,0.3)] z-0" />
             </a>
           </div>
         </div>

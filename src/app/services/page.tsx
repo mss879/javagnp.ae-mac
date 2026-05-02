@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { usePathname } from "next/navigation";
 import CurvedCorner from "../components/CurvedCorner";
 import Footer from "../components/Footer";
 
@@ -93,6 +94,7 @@ const SERVICES = [
 ];
 
 export default function ServicesPage() {
+  const pathname = usePathname();
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -120,14 +122,44 @@ export default function ServicesPage() {
          ══════════════════════════════════════════ */}
       <div className="hidden xl:flex absolute top-0 right-0 bg-white rounded-bl-[32px] z-[60] pt-3 pr-5 pl-5 pb-3 items-center gap-3 shadow-sm border-b border-l border-zinc-100">
         <div className="flex items-center gap-6 mr-1">
-          {NAV_LINKS.map((l) => (
-            <a key={l.href} href={l.href} className="text-sm font-extrabold tracking-widest uppercase text-zinc-900 hover:text-brand-primary transition-colors">
-              {l.label}
-            </a>
-          ))}
+          {NAV_LINKS.map((l) => {
+            const isActive = pathname === l.href || (l.href !== '/' && pathname?.startsWith(l.href));
+            return (
+              <a
+                key={l.href}
+                href={l.href}
+                className={`relative px-4 py-2 text-sm font-extrabold tracking-widest uppercase transition-all duration-300 group flex items-center justify-center ${
+                  isActive ? "text-brand-primary" : "text-zinc-900"
+                }`}
+              >
+                {/* Hover Pill Background */}
+                {!isActive && (
+                  <span className="absolute inset-0 bg-zinc-100 rounded-xl scale-50 opacity-0 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-100 group-hover:opacity-100 z-0" />
+                )}
+                
+                {/* Active Pill Background */}
+                {isActive && (
+                  <span className="absolute inset-0 bg-brand-primary/5 border border-brand-primary/10 rounded-xl z-0 shadow-[inset_0_0_12px_rgba(220,38,38,0.02)]" />
+                )}
+
+                {/* Text & Active Dot */}
+                <span className="relative z-10 flex items-center gap-2 transition-transform duration-300 group-hover:scale-105">
+                   {isActive && (
+                     <span className="w-1.5 h-1.5 rounded-full bg-brand-primary shadow-[0_0_8px_rgba(220,38,38,0.6)] animate-pulse" />
+                   )}
+                   <span className="group-hover:text-brand-primary transition-colors duration-300">{l.label}</span>
+                </span>
+              </a>
+            );
+          })}
           <div className="flex items-center pl-2">
-            <a href="/contact" className="relative group/btn text-sm font-bold tracking-widest uppercase text-brand-primary overflow-hidden rounded-xl px-6 py-3 transition-all duration-300 border border-brand-primary/20 bg-brand-primary/5 shadow-sm hover:bg-brand-primary hover:text-white">
-              <span className="relative z-10 drop-shadow-sm transition-colors">Contact</span>
+            <a
+              href="/contact"
+              className="relative group/btn text-sm font-bold tracking-widest uppercase text-white overflow-hidden rounded-xl px-6 py-3 transition-transform hover:-translate-y-0.5 active:translate-y-0 duration-300 bg-gradient-to-b from-brand-primary/90 to-brand-primary shadow-[0_6px_16px_rgba(220,38,38,0.3),inset_0_2px_4px_rgba(255,255,255,0.4),inset_0_-4px_6px_rgba(0,0,0,0.2)] border border-white/20 backdrop-blur-md"
+            >
+              <span className="relative z-10 drop-shadow-sm">Contact</span>
+              <div className="absolute inset-0 bg-gradient-to-b from-white/30 to-transparent opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300 z-0" />
+              <div className="absolute inset-0 rounded-xl shadow-[inset_0_0_10px_rgba(255,255,255,0.3)] z-0" />
             </a>
           </div>
         </div>
@@ -150,7 +182,7 @@ export default function ServicesPage() {
       {/* ══════════════════════════════════════════
           1. HERO SECTION (White Premium Theme)
          ══════════════════════════════════════════ */}
-      <section className="relative w-full h-[80vh] min-h-[600px] flex items-center pt-24 pb-12 overflow-hidden bg-white z-10">
+      <section ref={containerRef} className="relative w-full h-[80vh] min-h-[600px] flex items-center pt-24 pb-12 overflow-hidden bg-white z-10">
         
         {/* Background Layer with Parallax */}
         <motion.div 
@@ -167,8 +199,8 @@ export default function ServicesPage() {
         </motion.div>
 
         {/* Overlays to soften the image */}
-        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent z-10 pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-white z-10 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/40 to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-white/80 via-transparent to-white/80 z-10 pointer-events-none" />
         
         {/* Glow Orb to add a subtle pop of brand color */}
         <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[600px] h-[600px] bg-brand-primary opacity-[0.03] blur-[120px] rounded-full z-10 pointer-events-none" />
@@ -202,80 +234,67 @@ export default function ServicesPage() {
       {/* ══════════════════════════════════════════
           2. SERVICES SHOWCASE
          ══════════════════════════════════════════ */}
-      <section className="relative w-full py-24 md:py-32 bg-[#fafafa] border-t border-zinc-200 overflow-hidden z-20" ref={containerRef}>
-        <div className="max-w-[1400px] mx-auto px-6 sm:px-12 lg:px-20 space-y-24 md:space-y-32">
+      <section className="relative w-full pb-32 bg-[#fafafa] border-t border-zinc-200 z-20">
+        <div className="max-w-[1400px] mx-auto px-6 sm:px-12 lg:px-20 pt-24 md:pt-32 relative">
           
           {SERVICES.map((service, index) => {
-            const isEven = index % 2 === 0;
             return (
               <motion.div 
                 key={service.id}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
+                viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.7, ease: "easeOut" }}
-                className={`flex flex-col gap-12 lg:gap-20 items-center ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}
+                className="sticky top-[7.5vh] lg:top-[12.5vh] flex flex-col lg:flex-row gap-0 items-stretch bg-white shadow-[0_30px_60px_rgba(0,0,0,0.12)] rounded-[40px] overflow-hidden mb-[10vh] h-[85vh] lg:h-[75vh] max-h-[800px] border border-zinc-200"
               >
-                {/* Image Side */}
-                <div className="w-full lg:w-1/2">
-                  <div className="relative aspect-[4/3] w-full rounded-3xl overflow-hidden border border-zinc-200 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] group bg-white">
-                    <div className="absolute inset-0 bg-brand-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none" />
-                    <Image 
-                      src={service.image} 
-                      alt={service.title} 
-                      fill 
-                      className="object-cover group-hover:scale-[1.03] transition-transform duration-700 ease-out"
-                    />
-                    
-                    {/* Floating ID badge */}
-                    <div className="absolute bottom-6 left-6 z-20 flex items-center gap-4 shadow-lg rounded-xl">
-                      <div className="w-14 h-14 rounded-xl bg-white/95 backdrop-blur-md border border-zinc-100 flex items-center justify-center text-brand-primary font-tech text-xl font-bold">
-                        {service.id}
-                      </div>
+                {/* Content Side */}
+                <div className="w-full lg:w-1/2 p-8 sm:p-12 lg:p-16 flex flex-col justify-center">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-14 h-14 rounded-2xl bg-zinc-50 border border-zinc-100 flex items-center justify-center text-brand-primary font-tech text-xl font-bold shadow-sm">
+                      {service.id}
                     </div>
                   </div>
-                </div>
-
-                {/* Content Side */}
-                <div className="w-full lg:w-1/2 flex flex-col justify-center">
-                  <div className="flex items-center gap-4 mb-6">
-                    <span className="text-xl font-mono text-brand-primary/60">/{service.id}</span>
-                    <h2 className="text-3xl sm:text-4xl lg:text-[2.75rem] leading-tight font-tech font-bold tracking-tight text-zinc-900">
-                      {service.title}
-                    </h2>
-                  </div>
                   
-                  <div className="w-full h-[2px] bg-gradient-to-r from-zinc-200 to-transparent mb-8" />
+                  <h2 className="text-4xl sm:text-5xl lg:text-[3.25rem] leading-[1.1] font-tech font-bold tracking-tight text-zinc-900 mb-6">
+                    {service.title}
+                  </h2>
                   
-                  <ul className="space-y-5">
+                  <div className="w-16 h-1 bg-brand-primary mb-8 rounded-full" />
+                  
+                  <ul className="space-y-4">
                     {service.items.map((item, idx) => (
-                      <motion.li 
-                        key={idx}
-                        initial={{ opacity: 0, x: isEven ? 15 : -15 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.1 + (idx * 0.1), duration: 0.5 }}
-                        className="flex items-start gap-4 group"
-                      >
-                        <div className="w-7 h-7 rounded-full bg-brand-primary/10 border border-brand-primary/20 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-brand-primary group-hover:border-brand-primary transition-all duration-300">
+                      <li key={idx} className="flex items-start gap-4 group">
+                        <div className="w-7 h-7 rounded-full bg-brand-primary/5 border border-brand-primary/20 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-brand-primary transition-all duration-300">
                           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-brand-primary group-hover:text-white transition-colors duration-300">
                             <polyline points="20 6 9 17 4 12"></polyline>
                           </svg>
                         </div>
-                        <span className="text-lg text-zinc-600 group-hover:text-zinc-900 transition-colors duration-300 font-sans">
+                        <span className="text-lg md:text-xl text-zinc-600 font-sans leading-relaxed">
                           {item}
                         </span>
-                      </motion.li>
+                      </li>
                     ))}
                   </ul>
 
                   <div className="mt-10">
-                     <a href="/contact" className="inline-flex items-center gap-2 text-brand-primary font-bold tracking-widest uppercase hover:text-brand-primary-hover transition-colors group">
+                     <a href="/contact" className="inline-flex items-center justify-center gap-3 bg-zinc-900 text-white font-bold tracking-widest uppercase px-6 py-3.5 rounded-xl hover:bg-brand-primary transition-colors duration-300 group shadow-lg w-fit">
                        Discuss this service
                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-1 transition-transform"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                      </a>
                   </div>
                 </div>
+
+                {/* Image Side */}
+                <div className="w-full lg:w-1/2 relative h-1/2 lg:h-full shrink-0">
+                  <div className="absolute inset-0 bg-zinc-900/5 mix-blend-multiply z-10 pointer-events-none" />
+                  <Image 
+                    src={service.image} 
+                    alt={service.title} 
+                    fill 
+                    className="object-cover"
+                  />
+                </div>
+
               </motion.div>
             );
           })}
