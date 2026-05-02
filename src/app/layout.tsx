@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     template: "%s | JavaGNP",
   },
   description:
-    "JavaGNP is a Dubai-headquartered global technology company delivering IT solutions, AI innovation, cloud & cybersecurity, BPO, and digital marketing services worldwide.",
+    "Empowering global enterprises with cutting-edge IT solutions, AI innovation, and secure digital infrastructure. Headquartered in Dubai, delivering excellence worldwide.",
   keywords: [
     "JavaGNP",
     "IT solutions Dubai",
@@ -63,9 +63,22 @@ export const metadata: Metadata = {
     locale: "en_US",
     siteName: "JavaGNP",
     url: "https://javagnp.ae",
+    title: "JavaGNP – Transforming Ideas into Digital Reality",
+    description: "Empowering global enterprises with cutting-edge IT solutions, AI innovation, and secure digital infrastructure. Headquartered in Dubai, delivering excellence worldwide.",
+    images: [
+      {
+        url: "https://javagnp.ae/logo.png",
+        width: 1200,
+        height: 630,
+        alt: "JavaGNP Logo",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
+    title: "JavaGNP – Transforming Ideas into Digital Reality",
+    description: "Empowering global enterprises with cutting-edge IT solutions, AI innovation, and secure digital infrastructure. Headquartered in Dubai, delivering excellence worldwide.",
+    images: ["https://javagnp.ae/logo.png"],
   },
   alternates: {
     canonical: "https://javagnp.ae",
