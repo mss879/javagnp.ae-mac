@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-export default function WhyJavaGap() {
+export default function WhyJavaGNP() {
   return (
     <section className="py-24 px-6 sm:px-12 lg:px-20 bg-white relative overflow-hidden">
       <div className="max-w-[1400px] mx-auto">

@@ -159,7 +159,7 @@ export default function HowWeWorkPage() {
             </h1>
 
             <p className="text-lg md:text-xl text-zinc-600 font-sans leading-relaxed max-w-2xl border-l-2 border-brand-primary/30 pl-6 py-2">
-              Java Nexus delivers professional and technology-enabled services exclusively to overseas clients through a defined engagement lifecycle. Delivery is managed using standardized workflows, structured supervision, and consistent reporting to support continuity and measurable outcomes.
+              JavaGNP delivers professional and technology-enabled services exclusively to overseas clients through a defined engagement lifecycle. Delivery is managed using standardized workflows, structured supervision, and consistent reporting to support continuity and measurable outcomes.
             </p>
           </motion.div>
         </div>

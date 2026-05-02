@@ -27,7 +27,7 @@ const techFont = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Java Nexus – Transforming Ideas into Digital Reality",
+  title: "JavaGNP – Transforming Ideas into Digital Reality",
   description:
     "We design, build, and scale cutting-edge software solutions that empower businesses to thrive in the digital age.",
 };
