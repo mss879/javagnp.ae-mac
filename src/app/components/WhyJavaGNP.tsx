@@ -66,16 +66,16 @@ export default function WhyJavaGNP() {
               <div className="relative overflow-hidden rounded-2xl border border-zinc-200 bg-white/50 p-4 backdrop-blur-sm w-full">
                 <div className="flex min-w-max gap-4 animate-marquee hover:[animation-play-state:paused]" aria-hidden="true">
                   {[
-                    { title: "Core Operations", src: "/javagap/uniform/core.png" },
-                    { title: "Global Reach", src: "/javagap/uniform/globe.png" },
-                    { title: "Secure Systems", src: "/javagap/uniform/security.png" },
-                    { title: "Structured Delivery", src: "/javagap/uniform/delivery.png" },
-                    { title: "Scalable Tech", src: "/javagap/uniform/scale.png" },
-                    { title: "Core Operations", src: "/javagap/uniform/core.png" },
-                    { title: "Global Reach", src: "/javagap/uniform/globe.png" },
-                    { title: "Secure Systems", src: "/javagap/uniform/security.png" },
-                    { title: "Structured Delivery", src: "/javagap/uniform/delivery.png" },
-                    { title: "Scalable Tech", src: "/javagap/uniform/scale.png" },
+                    { title: "Core Operations", src: "/javagap/uniform/core.webp" },
+                    { title: "Global Reach", src: "/javagap/uniform/globe.webp" },
+                    { title: "Secure Systems", src: "/javagap/uniform/security.webp" },
+                    { title: "Structured Delivery", src: "/javagap/uniform/delivery.webp" },
+                    { title: "Scalable Tech", src: "/javagap/uniform/scale.webp" },
+                    { title: "Core Operations", src: "/javagap/uniform/core.webp" },
+                    { title: "Global Reach", src: "/javagap/uniform/globe.webp" },
+                    { title: "Secure Systems", src: "/javagap/uniform/security.webp" },
+                    { title: "Structured Delivery", src: "/javagap/uniform/delivery.webp" },
+                    { title: "Scalable Tech", src: "/javagap/uniform/scale.webp" },
                   ].map((item, idx) => (
                     <div key={idx} className="group relative flex w-[210px] shrink-0 flex-col gap-3 cursor-pointer">
                       <div className="relative aspect-[16/10] overflow-hidden rounded-xl bg-zinc-100 border border-zinc-300 shadow-sm">

@@ -55,7 +55,7 @@ export default function WhyChooseUs() {
               className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl group"
             >
               <Image 
-                src="/dubai/1.png" 
+                src="/dubai/1.webp" 
                 alt="Dubai Modern Office" 
                 fill 
                 className="object-cover transition-transform duration-700 group-hover:scale-110" 
@@ -71,7 +71,7 @@ export default function WhyChooseUs() {
               className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl group mt-8 sm:mt-12"
             >
               <Image 
-                src="/dubai/2.png" 
+                src="/dubai/2.webp" 
                 alt="Dubai Business District" 
                 fill 
                 className="object-cover transition-transform duration-700 group-hover:scale-110" 
@@ -87,7 +87,7 @@ export default function WhyChooseUs() {
               className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl group -mt-8 sm:-mt-12"
             >
               <Image 
-                src="/dubai/3.png" 
+                src="/dubai/3.webp" 
                 alt="Dubai Luxury Meeting Room" 
                 fill 
                 className="object-cover transition-transform duration-700 group-hover:scale-110" 
@@ -103,7 +103,7 @@ export default function WhyChooseUs() {
               className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl group"
             >
               <Image 
-                src="/dubai/4.png" 
+                src="/dubai/4.webp" 
                 alt="Dubai Corporate Architecture" 
                 fill 
                 className="object-cover transition-transform duration-700 group-hover:scale-110" 

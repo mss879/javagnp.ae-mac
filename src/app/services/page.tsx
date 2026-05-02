@@ -18,7 +18,7 @@ const SERVICES = [
   {
     id: "01",
     title: "IT Solutions & Consulting",
-    image: "/it_solutions_pro_1777702744219.png",
+    image: "/it_solutions_pro_1777702744219.webp",
     items: [
       "Web Design & Development",
       "App Development",
@@ -29,7 +29,7 @@ const SERVICES = [
   {
     id: "02",
     title: "E-Commerce & Digital Business",
-    image: "/ecommerce_pro_v2_1777703249592.png",
+    image: "/ecommerce_pro_v2_1777703249592.webp",
     items: [
       "E-Commerce Store Setup",
       "Drop Shipping / Direct Shipping",
@@ -40,7 +40,7 @@ const SERVICES = [
   {
     id: "03",
     title: "Cloud & Cybersecurity",
-    image: "/cybersecurity_pro_1777702777034.png",
+    image: "/cybersecurity_pro_1777702777034.webp",
     items: [
       "Cloud Services & Data Center Solutions",
       "Data Management",
@@ -51,7 +51,7 @@ const SERVICES = [
   {
     id: "04",
     title: "AI & Innovation",
-    image: "/ai_innovation_pro_v2_1777703265026.png",
+    image: "/ai_innovation_pro_v2_1777703265026.webp",
     items: [
       "Artificial Intelligence Solutions",
       "Academic Research & Consultancy",
@@ -62,7 +62,7 @@ const SERVICES = [
   {
     id: "05",
     title: "Digital Marketing & Branding",
-    image: "/digital_marketing_pro_1777702851661.png",
+    image: "/digital_marketing_pro_1777702851661.webp",
     items: [
       "Social Media & Influencer Marketing",
       "Resume Writing & Career Coaching",
@@ -73,7 +73,7 @@ const SERVICES = [
   {
     id: "06",
     title: "Business Process Outsourcing (BPO)",
-    image: "/bpo_pro_1777702867098.png",
+    image: "/bpo_pro_1777702867098.webp",
     items: [
       "Customer Service",
       "Government & Corporate Tendering Services",
@@ -83,7 +83,7 @@ const SERVICES = [
   {
     id: "07",
     title: "Entertainment & Gaming",
-    image: "/gaming_pro_1777702882023.png",
+    image: "/gaming_pro_1777702882023.webp",
     items: [
       "E-Games Equipment Trading",
       "Entertainment Hall Management",
@@ -190,7 +190,7 @@ export default function ServicesPage() {
           className="absolute inset-0 z-0 pointer-events-none"
         >
           <Image 
-            src="/services_hero_light_1777702408280.png" 
+            src="/services_hero_light_1777702408280.webp" 
             alt="Corporate IT Services Background" 
             fill 
             className="object-cover object-right opacity-60 mix-blend-multiply"

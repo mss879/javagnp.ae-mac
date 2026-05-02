@@ -59,11 +59,10 @@ const STATS = [
 export default function Hero() {
   const pathname = usePathname();
   return (
-    <div className="w-full bg-brand-background flex flex-col">
-      <div className="w-full h-[6px] xl:h-[10px] bg-white shrink-0" />
+    <div className="w-full bg-white flex flex-col p-[3px] overflow-hidden">
       <section
         id="hero"
-        className="relative w-full h-[calc(100vh-6px)] xl:h-[calc(100vh-10px)] rounded-b-[32px] bg-brand-surface overflow-hidden glow-border pointer-events-auto shadow-2xl"
+        className="relative w-full h-[calc(100vh-6px)] rounded-[32px] bg-brand-surface overflow-hidden pointer-events-auto"
       >
       {/* ── Background Video Layer ── */}
       <div className="absolute inset-0 z-0 bg-brand-background pointer-events-none">

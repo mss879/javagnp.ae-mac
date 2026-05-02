@@ -161,7 +161,7 @@ export default function HowWeWorkPage() {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-brand-primary/5 blur-[120px] rounded-full pointer-events-none z-0" />
           
           <Image 
-            src="/how_we_work_hero_light.png" 
+            src="/how_we_work_hero_light.webp" 
             alt="Global Connectivity" 
             fill 
             className="object-cover object-right opacity-80 mix-blend-multiply"
@@ -529,7 +529,7 @@ export default function HowWeWorkPage() {
               className="relative aspect-square md:aspect-video lg:aspect-square w-full max-w-2xl mx-auto rounded-[32px] overflow-hidden border border-zinc-100 shadow-[0_30px_80px_rgba(0,0,0,0.05)]"
             >
               <Image 
-                src="/operational_excellence_light.png" 
+                src="/operational_excellence_light.webp" 
                 alt="Operational Excellence & Security" 
                 fill 
                 className="object-cover"

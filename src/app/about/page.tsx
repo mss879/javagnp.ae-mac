@@ -16,10 +16,10 @@ const NAV_LINKS = [
 ] as const;
 
 const COMMODITIES = [
-  { title: "Sugar Trading", desc: "Comprehensive import and export of refined and raw sugar across international markets, ensuring consistent supply and adherence to rigorous quality control standards.", image: "/commodity_sugar_1777705136143.png" },
-  { title: "Coffee & Tea", desc: "End-to-end management of premium coffee and tea trading through established, ethical supply chains, connecting global growers directly with international distributors.", image: "/commodity_coffee_1777705150764.png" },
-  { title: "Spice Trading", desc: "Strategic trading of high-grade culinary spices sourced from premium global suppliers to meet exacting international market demands.", image: "/commodity_spice_1777705166008.png" },
-  { title: "Corn & Soybeans", desc: "Large-scale trading and logistics coordination of yellow corn and soybeans within robust agricultural commodity networks, supporting global food security.", image: "/commodity_corn_soy_1777705183576.png" }
+  { title: "Sugar Trading", desc: "Comprehensive import and export of refined and raw sugar across international markets, ensuring consistent supply and adherence to rigorous quality control standards.", image: "/commodity_sugar_1777705136143.webp" },
+  { title: "Coffee & Tea", desc: "End-to-end management of premium coffee and tea trading through established, ethical supply chains, connecting global growers directly with international distributors.", image: "/commodity_coffee_1777705150764.webp" },
+  { title: "Spice Trading", desc: "Strategic trading of high-grade culinary spices sourced from premium global suppliers to meet exacting international market demands.", image: "/commodity_spice_1777705166008.webp" },
+  { title: "Corn & Soybeans", desc: "Large-scale trading and logistics coordination of yellow corn and soybeans within robust agricultural commodity networks, supporting global food security.", image: "/commodity_corn_soy_1777705183576.webp" }
 ];
 
 const LICENSES = [
@@ -146,7 +146,7 @@ export default function AboutPage() {
       <section ref={containerRef} className="relative w-full h-[80vh] min-h-[600px] flex items-center pt-24 pb-12 overflow-hidden bg-white z-10">
         <motion.div style={{ y }} className="absolute inset-0 z-0 pointer-events-none">
           <Image 
-            src="/about_hero_light_v2_1777704696034.png" 
+            src="/about_hero_light_v2_1777704696034.webp" 
             alt="Corporate Headquarters" 
             fill 
             className="object-cover opacity-50 mix-blend-multiply"
@@ -259,7 +259,7 @@ export default function AboutPage() {
                    The parent company operates within established international trading networks and maintains overseas commercial relationships across multiple markets, driving diversified commodity trading.
                  </p>
                  <div className="relative w-10/12 aspect-[4/3] rounded-3xl overflow-hidden shadow-lg border border-zinc-100 hidden lg:block">
-                   <Image src="/about_commodities_1777704106727.png" alt="Commodity Trading" fill className="object-cover" />
+                   <Image src="/about_commodities_1777704106727.webp" alt="Commodity Trading" fill className="object-cover" />
                  </div>
                </motion.div>
              </div>
@@ -398,7 +398,7 @@ export default function AboutPage() {
               viewport={{ once: true }}
               className="w-full lg:w-1/2 relative aspect-[4/3] rounded-3xl overflow-hidden shadow-xl border border-zinc-100"
             >
-              <Image src="/about_governance_1777704122669.png" alt="Corporate Governance" fill className="object-cover" />
+              <Image src="/about_governance_1777704122669.webp" alt="Corporate Governance" fill className="object-cover" />
             </motion.div>
             
           </div>
