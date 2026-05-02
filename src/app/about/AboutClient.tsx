@@ -24,26 +24,10 @@ const COMMODITIES = [
 
 const LICENSES = [
   { 
-    country: "United Arab Emirates", 
-    zone: "Ras Al Khaimah Free Zone",
-    numbers: [
-      { label: "REGISTRATION NO.", val: "0000004082362" },
-      { label: "TRADE LICENSE NO.", val: "47029062" },
-      { label: "TRADE LICENSE NO.", val: "46001825" }
-    ]
-  },
-  { 
-    country: "Sri Lanka", 
-    zone: "Colombo Port City",
-    numbers: [
-      { label: "REGISTRATION NO.", val: "PCC 00361397" }
-    ]
-  },
-  { 
     country: "Sri Lanka", 
     zone: "Government Registration",
     numbers: [
-      { label: "COMPANY REGISTRATION NO.", val: "PV 00351228" }
+      { label: "COMPANY REGISTRATION NO.", val: "P V 00362384" }
     ]
   }
 ];
@@ -312,7 +296,7 @@ export default function AboutClient() {
              </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="flex justify-center w-full max-w-sm mx-auto">
             {LICENSES.map((lic, idx) => (
               <motion.div 
                 key={idx}
@@ -320,7 +304,7 @@ export default function AboutClient() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="p-8 rounded-3xl bg-white border border-zinc-200/60 shadow-sm"
+                className="w-full p-8 rounded-3xl bg-white border border-zinc-200/60 shadow-sm"
               >
                  <div className="mb-6">
                    <h3 className="text-lg font-bold text-brand-primary">{lic.country}</h3>

@@ -71,10 +71,16 @@ export default function Footer() {
                 Company
               </h4>
               <ul className="space-y-3">
-                {['About Us', 'How We Work', 'Careers', 'Contact'].map((item) => (
-                  <li key={item}>
-                    <Link href={`/${item.toLowerCase().replace(/\s+/g, '-')}`} className="text-zinc-300 hover:text-brand-primary text-sm transition-colors duration-300">
-                      {item}
+                {[
+                  { label: 'Home', href: '/' },
+                  { label: 'About Us', href: '/about' },
+                  { label: 'Services', href: '/services' },
+                  { label: 'How We Work', href: '/how-we-work' },
+                  { label: 'Contact Us', href: '/contact' }
+                ].map((item) => (
+                  <li key={item.label}>
+                    <Link href={item.href} className="text-zinc-300 hover:text-brand-primary text-sm transition-colors duration-300">
+                      {item.label}
                     </Link>
                   </li>
                 ))}
@@ -138,7 +144,7 @@ export default function Footer() {
             </a>
 
             <div className="flex items-center gap-6">
-              <Link href="/privacy" className="text-zinc-400 hover:text-white text-xs transition-colors duration-300">Privacy Policy</Link>
+              <Link href="/privacy-policy" className="text-zinc-400 hover:text-white text-xs transition-colors duration-300">Privacy Policy</Link>
               <Link href="/terms" className="text-zinc-400 hover:text-white text-xs transition-colors duration-300">Terms of Service</Link>
             </div>
           </div>
