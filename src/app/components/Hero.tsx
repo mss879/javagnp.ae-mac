@@ -2,8 +2,9 @@
 
 import Image from "next/image";
 import CurvedCorner from "./CurvedCorner";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 
 /* ═══════════════════════════════════════════════════
    Navigation links
@@ -58,6 +59,7 @@ const STATS = [
    ═══════════════════════════════════════════════════ */
 export default function Hero() {
   const pathname = usePathname();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   return (
     <div className="w-full bg-white flex flex-col p-[3px] overflow-hidden">
       <section
@@ -172,7 +174,7 @@ export default function Hero() {
       {/* ══════════════════════════════════════════
           MOBILE NAV
          ══════════════════════════════════════════ */}
-      <div className="xl:hidden absolute top-0 left-0 w-full bg-white z-[60] flex items-center justify-between px-5 py-2 pointer-events-auto border-b border-gray-100">
+      <div className="xl:hidden absolute top-0 left-0 w-full bg-white z-[60] flex items-center justify-between px-5 py-2 pointer-events-auto border-b border-gray-100 shadow-sm">
         <a href="/" className="flex items-center shrink-0">
           <Image
             src="/logo.png"
@@ -184,42 +186,100 @@ export default function Hero() {
         </a>
 
         <div className="flex items-center gap-3">
-
-          {/* hamburger */}
           <button
-            className="flex items-center gap-2 h-[44px] px-5 rounded-xl bg-brand-surface-light text-white hover:bg-brand-surface transition-colors border border-brand-outline shadow-md cursor-pointer"
-            aria-label="Open menu"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="relative group/btn text-sm font-bold tracking-widest uppercase text-white overflow-hidden rounded-xl px-4 py-2 sm:px-6 sm:py-3 transition-transform hover:-translate-y-0.5 active:translate-y-0 duration-300 bg-gradient-to-b from-brand-primary/90 to-brand-primary shadow-[0_6px_16px_rgba(220,38,38,0.3),inset_0_2px_4px_rgba(255,255,255,0.4),inset_0_-4px_6px_rgba(0,0,0,0.2)] border border-white/20 backdrop-blur-md flex items-center gap-2"
+            aria-label="Toggle menu"
           >
-            <span className="relative w-[18px] h-[14px] shrink-0 inline-flex flex-col justify-between" aria-hidden="true">
-              <span className="w-full h-[2px] bg-white rounded-sm" />
-              <span className="w-full h-[2px] bg-white rounded-sm" />
-              <span className="w-full h-[2px] bg-white rounded-sm" />
+            <span className="relative z-10 drop-shadow-sm flex items-center gap-2">
+              <span className="relative w-[16px] h-[12px] shrink-0 inline-flex flex-col justify-between" aria-hidden="true">
+                <span className={`w-full h-[2px] bg-white rounded-sm transition-all duration-300 ${isMobileMenuOpen ? "rotate-45 translate-y-[5px]" : ""}`} />
+                <span className={`w-full h-[2px] bg-white rounded-sm transition-all duration-300 ${isMobileMenuOpen ? "opacity-0" : ""}`} />
+                <span className={`w-full h-[2px] bg-white rounded-sm transition-all duration-300 ${isMobileMenuOpen ? "-rotate-45 -translate-y-[5px]" : ""}`} />
+              </span>
+              <span>{isMobileMenuOpen ? "Close" : "Menu"}</span>
             </span>
-            <span className="text-sm font-bold tracking-wider uppercase">Menu</span>
+            <div className="absolute inset-0 bg-gradient-to-b from-white/30 to-transparent opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300 z-0" />
+            <div className="absolute inset-0 rounded-xl shadow-[inset_0_0_10px_rgba(255,255,255,0.3)] z-0" />
           </button>
         </div>
       </div>
 
-
-
       {/* ══════════════════════════════════════════
+          MOBILE MENU OVERLAY
+         ══════════════════════════════════════════ */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.2 }}
+            className="xl:hidden absolute top-[65px] left-0 w-full bg-white z-[50] border-b border-gray-100 shadow-xl flex flex-col p-4 pointer-events-auto"
+          >
+            {NAV_LINKS.map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                className="py-4 border-b border-gray-100 text-lg font-bold uppercase tracking-widest text-zinc-900 flex justify-between items-center"
+              >
+                {l.label}
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-brand-primary">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </a>
+            ))}
+            <a
+              href="/contact"
+              className="mt-6 text-center text-sm font-bold tracking-widest uppercase text-white rounded-xl px-6 py-4 bg-gradient-to-b from-brand-primary/90 to-brand-primary shadow-[0_6px_16px_rgba(220,38,38,0.3),inset_0_2px_4px_rgba(255,255,255,0.4),inset_0_-4px_6px_rgba(0,0,0,0.2)] border border-white/20"
+            >
+              Contact Us
+            </a>
+          </motion.div>
+        )}
+      </AnimatePresence>      {/* ══════════════════════════════════════════
           MAIN HERO CONTENT
          ══════════════════════════════════════════ */}
-      <div className="relative z-20 w-full h-full flex items-center px-6 sm:px-12 lg:px-20">
-        <div className="flex flex-col justify-center space-y-6 lg:space-y-8 max-w-[1100px] pt-12 lg:pt-0 mt-12 md:mt-20 lg:mt-24">
+      <div className="relative z-20 w-full h-full flex items-end md:items-center px-4 sm:px-12 lg:px-20 justify-start pb-[28vh] md:pb-0">
+        <div className="flex flex-col justify-center items-start text-left bg-zinc-950/40 backdrop-blur-xl border border-white/20 p-5 sm:p-6 rounded-2xl md:rounded-3xl shadow-2xl w-full sm:w-auto max-w-[1100px]">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-[4rem] xl:text-[4.5rem] 2xl:text-[5rem] tracking-tight leading-[1.05] font-tech mb-6 text-white"
+            className="text-[34px] leading-[1.15] sm:text-5xl md:text-5xl lg:text-[4rem] xl:text-[4.5rem] 2xl:text-[5rem] tracking-tight md:leading-[1.05] font-tech text-white m-0"
           >
-            Your Partner in Technology,
-            <br className="hidden md:block" />
-            <span className="whitespace-nowrap">
-              Innovation, and Growth
-            </span>
+            Your Partner in Technology,<br />
+            Innovation, and Growth
           </motion.h1>
 
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+            className="text-white/80 text-[13px] sm:text-sm md:text-base mt-4 font-medium tracking-wide max-w-[300px] sm:max-w-sm md:max-w-[600px]"
+          >
+            Delivering enterprise IT solutions, AI innovation, and global managed services to empower your business in the digital age.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
+            className="flex flex-row items-center justify-start gap-3 w-full sm:w-auto mt-6 md:mt-8 md:hidden"
+          >
+            <a
+              href="/contact"
+              className="flex-1 sm:flex-none text-center text-xs sm:text-sm font-bold tracking-widest uppercase text-white rounded-xl px-2 py-3.5 sm:px-6 sm:py-4 bg-gradient-to-b from-brand-primary/90 to-brand-primary shadow-[0_6px_16px_rgba(220,38,38,0.3),inset_0_2px_4px_rgba(255,255,255,0.4),inset_0_-4px_6px_rgba(0,0,0,0.2)] border border-white/20 transition-transform active:scale-95"
+            >
+              Contact Us
+            </a>
+            <a
+              href="/services"
+              className="flex-1 sm:flex-none text-center text-xs sm:text-sm font-bold tracking-widest uppercase text-white rounded-xl px-2 py-3.5 sm:px-6 sm:py-4 bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-md transition-all active:scale-95"
+            >
+              Learn More
+            </a>
+          </motion.div>
         </div>
       </div>
 

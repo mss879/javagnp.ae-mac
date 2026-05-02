@@ -26,10 +26,99 @@ const techFont = localFont({
   display: "swap",
 });
 
+/* ──────────────────────────────────────────
+   GLOBAL METADATA (inherited by all pages)
+   ────────────────────────────────────────── */
 export const metadata: Metadata = {
-  title: "JavaGNP – Transforming Ideas into Digital Reality",
+  metadataBase: new URL("https://javagnp.ae"),
+  title: {
+    default: "JavaGNP – Transforming Ideas into Digital Reality",
+    template: "%s | JavaGNP",
+  },
   description:
-    "We design, build, and scale cutting-edge software solutions that empower businesses to thrive in the digital age.",
+    "JavaGNP is a Dubai-headquartered global technology company delivering IT solutions, AI innovation, cloud & cybersecurity, BPO, and digital marketing services worldwide.",
+  keywords: [
+    "JavaGNP",
+    "IT solutions Dubai",
+    "software development UAE",
+    "global technology company",
+    "digital transformation",
+  ],
+  authors: [{ name: "ARC AI", url: "https://www.arcai.agency" }],
+  creator: "ARC AI",
+  publisher: "JavaGNP",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    siteName: "JavaGNP",
+    url: "https://javagnp.ae",
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
+  alternates: {
+    canonical: "https://javagnp.ae",
+  },
+  other: {
+    designer: "ARC AI – AI Automation and Software Company",
+    author: "ARC AI",
+  },
+};
+
+/* ──────────────────────────────────────────
+   ORGANIZATION JSON-LD (global)
+   ────────────────────────────────────────── */
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "JavaGNP",
+  legalName: "Java Global Nexus Platform (Pvt) Ltd",
+  url: "https://javagnp.ae",
+  logo: "https://javagnp.ae/logo.png",
+  description:
+    "Dubai-headquartered global technology company delivering IT solutions, AI innovation, cloud & cybersecurity, BPO, and digital marketing services.",
+  foundingDate: "2023",
+  address: [
+    {
+      "@type": "PostalAddress",
+      addressLocality: "Dubai",
+      addressRegion: "Dubai Internet City",
+      addressCountry: "AE",
+    },
+    {
+      "@type": "PostalAddress",
+      addressLocality: "Colombo",
+      addressRegion: "Port City",
+      addressCountry: "LK",
+    },
+  ],
+  contactPoint: {
+    "@type": "ContactPoint",
+    email: "contact@javagnp.ae",
+    contactType: "customer service",
+    availableLanguage: ["English"],
+  },
+  sameAs: [],
+  parentOrganization: {
+    "@type": "Organization",
+    name: "Pey and Cey World Wide Sugar Trading LLC",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Dubai",
+      addressCountry: "AE",
+    },
+  },
 };
 
 export default function RootLayout({
@@ -44,6 +133,14 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-background">
         {children}
+
+        {/* Global Organization JSON-LD */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationJsonLd),
+          }}
+        />
       </body>
     </html>
   );

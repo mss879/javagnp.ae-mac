@@ -26,20 +26,26 @@ export default function WhyChooseUs() {
             We operate as a premier global delivery and execution hub based in Dubai. Our structured model ensures excellence through standardized processes, centralized governance, scalable human resources, and secure, cutting-edge digital infrastructure.
           </p>
 
-          <div className="pt-4 flex flex-col sm:flex-row gap-6">
-            <div className="flex flex-col gap-2">
-              <span className="text-3xl font-tech text-zinc-900">50+</span>
-              <span className="text-xs uppercase tracking-widest text-zinc-500">Global Partners</span>
-            </div>
-            <div className="hidden sm:block w-px bg-zinc-200" />
-            <div className="flex flex-col gap-2">
-              <span className="text-3xl font-tech text-zinc-900">24/7</span>
-              <span className="text-xs uppercase tracking-widest text-zinc-500">Operations Hub</span>
-            </div>
-            <div className="hidden sm:block w-px bg-zinc-200" />
-            <div className="flex flex-col gap-2">
-              <span className="text-3xl font-tech text-zinc-900">100%</span>
-              <span className="text-xs uppercase tracking-widest text-zinc-500">Secure Infrastructure</span>
+          <div className="pt-8 sm:pt-4 w-full">
+            <div className="grid grid-cols-3 divide-x divide-zinc-200 sm:flex sm:flex-row sm:divide-none sm:gap-6 border-y border-zinc-100 sm:border-none py-6 sm:py-0">
+              <div className="flex flex-col gap-1 sm:gap-2 px-3 sm:px-0 items-center sm:items-start text-center sm:text-left">
+                <span className="text-2xl sm:text-3xl font-tech text-zinc-900">50+</span>
+                <span className="text-[9px] sm:text-xs uppercase tracking-widest text-zinc-500 font-bold leading-[1.3]">Global Partners</span>
+              </div>
+              
+              <div className="hidden sm:block w-px bg-zinc-200" />
+              
+              <div className="flex flex-col gap-1 sm:gap-2 px-3 sm:px-0 items-center sm:items-start text-center sm:text-left">
+                <span className="text-2xl sm:text-3xl font-tech text-zinc-900">24/7</span>
+                <span className="text-[9px] sm:text-xs uppercase tracking-widest text-zinc-500 font-bold leading-[1.3]">Operations<br className="sm:hidden" /> Hub</span>
+              </div>
+              
+              <div className="hidden sm:block w-px bg-zinc-200" />
+              
+              <div className="flex flex-col gap-1 sm:gap-2 px-3 sm:px-0 items-center sm:items-start text-center sm:text-left">
+                <span className="text-2xl sm:text-3xl font-tech text-zinc-900">100%</span>
+                <span className="text-[9px] sm:text-xs uppercase tracking-widest text-zinc-500 font-bold leading-[1.3]">Secure<br className="sm:hidden" /> Infrastructure</span>
+              </div>
             </div>
           </div>
         </motion.div>

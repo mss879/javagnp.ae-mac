@@ -2,8 +2,30 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import Script from "next/script";
 
 export default function Footer() {
+  const creatorJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "JavaGNP",
+    "url": "https://javagnp.ae",
+    "creator": {
+      "@type": "Organization",
+      "name": "ARC AI",
+      "url": "https://www.arcai.agency",
+      "description": "AI Automation and Software Company specializing in web design, development, and digital solutions.",
+      "sameAs": [
+        "https://www.arcai.agency"
+      ]
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "ARC AI",
+      "url": "https://www.arcai.agency"
+    }
+  };
+
   return (
     <footer className="w-full bg-white pb-6 sm:pb-8 px-4 sm:px-6">
       <div className="relative w-full mx-auto bg-zinc-950 text-white overflow-hidden rounded-[40px] pt-24 pb-12 px-8 sm:px-16 lg:px-24 shadow-2xl">
@@ -96,6 +118,25 @@ export default function Footer() {
             <p className="text-zinc-400 text-xs text-center md:text-left">
               &copy; {new Date().getFullYear()} JavaGNP. All rights reserved.
             </p>
+
+            {/* Designer / Builder Credit – centered */}
+            <a
+              href="https://www.arcai.agency"
+              target="_blank"
+              rel="noopener"
+              title="ARC AI – AI Automation and Software Company"
+              className="inline-flex items-center gap-2 text-zinc-400 hover:text-white transition-colors duration-300 group"
+            >
+              <span className="text-[11px] tracking-wide uppercase font-medium">Designed &amp; Built by</span>
+              <Image
+                src="/arc-logo.png"
+                alt="ARC AI – AI Automation and Software Company"
+                width={100}
+                height={34}
+                className="h-7 w-auto object-contain"
+              />
+            </a>
+
             <div className="flex items-center gap-6">
               <Link href="/privacy" className="text-zinc-400 hover:text-white text-xs transition-colors duration-300">Privacy Policy</Link>
               <Link href="/terms" className="text-zinc-400 hover:text-white text-xs transition-colors duration-300">Terms of Service</Link>
@@ -103,6 +144,14 @@ export default function Footer() {
           </div>
         </div>
       </div>
+
+      {/* JSON-LD Structured Data for Creator / Author Attribution */}
+      <Script
+        id="creator-jsonld"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(creatorJsonLd) }}
+      />
     </footer>
   );
 }
