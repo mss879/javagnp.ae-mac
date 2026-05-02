@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Outfit } from "next/font/google";
 import localFont from "next/font/local";
@@ -26,30 +26,51 @@ const techFont = localFont({
   display: "swap",
 });
 
+export const viewport: Viewport = {
+  themeColor: "#ffffff",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+};
+
 /* ──────────────────────────────────────────
    GLOBAL METADATA (inherited by all pages)
    ────────────────────────────────────────── */
 export const metadata: Metadata = {
   metadataBase: new URL("https://javagnp.ae"),
   title: {
-    default: "JavaGNP – Transforming Ideas into Digital Reality",
+    default: "JavaGNP | Enterprise IT Solutions, AI & Cybersecurity in Dubai",
     template: "%s | JavaGNP",
   },
   description:
-    "Empowering global enterprises with cutting-edge IT solutions, AI innovation, and secure digital infrastructure. Headquartered in Dubai, delivering excellence worldwide.",
+    "JavaGNP is a premier global technology nexus headquartered in Dubai, specializing in cutting-edge IT solutions, AI-driven automation, secure cloud infrastructure, BPO, and digital marketing to empower enterprises worldwide.",
   keywords: [
     "JavaGNP",
+    "Java Global Nexus Platform",
     "IT solutions Dubai",
-    "software development UAE",
-    "global technology company",
-    "digital transformation",
+    "enterprise software development UAE",
+    "AI automation services",
+    "cybersecurity solutions Dubai",
+    "cloud computing infrastructure UAE",
+    "BPO services global",
+    "digital marketing agency Dubai",
+    "enterprise IT consulting",
+    "tech company Port City Colombo",
+    "digital transformation experts",
+    "custom software engineering",
   ],
   authors: [{ name: "ARC AI", url: "https://www.arcai.agency" }],
   creator: "ARC AI",
   publisher: "JavaGNP",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   robots: {
     index: true,
     follow: true,
+    nocache: false,
     googleBot: {
       index: true,
       follow: true,
@@ -61,24 +82,25 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
+    alternateLocale: ["en_AE", "en_GB"],
     siteName: "JavaGNP",
     url: "https://javagnp.ae",
-    title: "JavaGNP – Transforming Ideas into Digital Reality",
+    title: "JavaGNP | Transformative IT, AI & Cybersecurity Solutions",
     description: "Empowering global enterprises with cutting-edge IT solutions, AI innovation, and secure digital infrastructure. Headquartered in Dubai, delivering excellence worldwide.",
     images: [
       {
-        url: "https://javagnp.ae/logo.png",
+        url: "https://javagnp.ae/favicon.png",
         width: 1200,
         height: 630,
-        alt: "JavaGNP Logo",
+        alt: "JavaGNP – Premium IT, AI & Digital Solutions",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "JavaGNP – Transforming Ideas into Digital Reality",
-    description: "Empowering global enterprises with cutting-edge IT solutions, AI innovation, and secure digital infrastructure. Headquartered in Dubai, delivering excellence worldwide.",
-    images: ["https://javagnp.ae/logo.png"],
+    title: "JavaGNP | Premium IT Solutions & AI Innovation",
+    description: "Empowering global enterprises with cutting-edge IT solutions, AI innovation, and secure digital infrastructure. Headquartered in Dubai.",
+    images: ["https://javagnp.ae/favicon.png"],
   },
   alternates: {
     canonical: "https://javagnp.ae",
@@ -100,7 +122,7 @@ const organizationJsonLd = {
   url: "https://javagnp.ae",
   logo: "https://javagnp.ae/logo.png",
   description:
-    "Dubai-headquartered global technology company delivering IT solutions, AI innovation, cloud & cybersecurity, BPO, and digital marketing services.",
+    "A premier Dubai-headquartered global technology company delivering enterprise IT solutions, AI innovation, cloud & cybersecurity, BPO, and digital marketing services worldwide.",
   foundingDate: "2023",
   address: [
     {
@@ -120,9 +142,14 @@ const organizationJsonLd = {
     "@type": "ContactPoint",
     email: "contact@javagnp.ae",
     contactType: "customer service",
-    availableLanguage: ["English"],
+    availableLanguage: ["English", "Arabic"],
   },
-  sameAs: [],
+  sameAs: [
+    "https://www.linkedin.com/company/javagnp",
+    "https://twitter.com/javagnp",
+    "https://www.facebook.com/javagnp",
+    "https://www.instagram.com/javagnp"
+  ],
   parentOrganization: {
     "@type": "Organization",
     name: "Pey and Cey World Wide Sugar Trading LLC",
@@ -132,6 +159,21 @@ const organizationJsonLd = {
       addressCountry: "AE",
     },
   },
+};
+
+/* ──────────────────────────────────────────
+   WEBSITE JSON-LD
+   ────────────────────────────────────────── */
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "JavaGNP",
+  url: "https://javagnp.ae",
+  description: "Transforming Ideas into Digital Reality through IT, AI, and Cybersecurity.",
+  publisher: {
+    "@type": "Organization",
+    name: "JavaGNP"
+  }
 };
 
 export default function RootLayout({
@@ -152,6 +194,13 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(organizationJsonLd),
+          }}
+        />
+        {/* WebSite JSON-LD */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteJsonLd),
           }}
         />
       </body>
