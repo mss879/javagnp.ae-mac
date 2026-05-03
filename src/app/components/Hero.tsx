@@ -184,7 +184,7 @@ export default function Hero() {
             <a
               key={l.href}
               href={l.href}
-              className="gsap-menu-item text-3xl md:text-5xl font-extrabold uppercase tracking-widest text-white hover:text-brand-primary transition-colors text-left"
+              className="gsap-menu-item text-2xl md:text-4xl font-tech font-bold uppercase tracking-widest text-white hover:text-brand-primary transition-colors text-left"
               onClick={() => setIsMenuOpen(false)}
             >
               {l.label}
@@ -192,7 +192,7 @@ export default function Hero() {
           ))}
           <a
             href="/contact"
-            className="gsap-menu-item text-3xl md:text-5xl font-extrabold uppercase tracking-widest text-white hover:text-brand-primary transition-colors text-left"
+            className="gsap-menu-item text-2xl md:text-4xl font-tech font-bold uppercase tracking-widest text-white hover:text-brand-primary transition-colors text-left"
             onClick={() => setIsMenuOpen(false)}
           >
             Contact

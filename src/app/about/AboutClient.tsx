@@ -296,7 +296,7 @@ export default function AboutClient() {
              </p>
           </motion.div>
 
-          <div className="flex justify-center w-full max-w-sm mx-auto">
+          <div className="flex justify-center w-full max-w-4xl mx-auto">
             {LICENSES.map((lic, idx) => (
               <motion.div 
                 key={idx}
@@ -304,22 +304,20 @@ export default function AboutClient() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="w-full p-8 rounded-3xl bg-white border border-zinc-200/60 shadow-sm"
+                className="w-full p-8 md:p-10 rounded-3xl bg-white border border-zinc-200/60 shadow-sm flex flex-col md:flex-row items-center md:justify-between gap-8"
               >
-                 <div className="mb-6">
-                   <div className="flex items-center gap-4 mb-4">
-                     <Image src="/Goverment Logo.jpg.jpeg" alt="Government Logo" width={64} height={64} className="object-contain rounded-md" />
-                     <div>
-                       <h3 className="text-lg text-brand-primary font-tech font-semibold">{lic.country}</h3>
-                       <p className="text-zinc-500 font-medium text-sm leading-snug max-w-[200px]">{lic.zone}</p>
-                     </div>
+                 <div className="flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-6 w-full md:w-auto">
+                   <Image src="/Goverment Logo.jpg.jpeg" alt="Government Logo" width={80} height={80} className="object-contain rounded-md shrink-0 bg-white" />
+                   <div className="flex flex-col justify-center">
+                     <h3 className="text-xl md:text-2xl text-brand-primary font-tech font-semibold mb-2">{lic.country}</h3>
+                     <p className="text-zinc-500 font-medium text-sm md:text-base leading-snug max-w-xs">{lic.zone}</p>
                    </div>
                  </div>
-                 <div className="space-y-4 pt-4 border-t border-zinc-100">
+                 <div className="flex gap-8 w-full md:w-auto justify-center md:justify-start border-t md:border-t-0 md:border-l border-zinc-100 pt-6 md:pt-0 md:pl-10">
                     {lic.numbers.map((num, i) => (
-                      <div key={i}>
-                        <p className="text-xs text-zinc-400 uppercase tracking-wider mb-1">{num.label}</p>
-                        <p className="text-zinc-900 font-mono font-medium text-lg">{num.val}</p>
+                      <div key={i} className="text-center md:text-left">
+                        <p className="text-xs md:text-sm text-zinc-400 uppercase tracking-wider mb-2">{num.label}</p>
+                        <p className="text-zinc-900 font-mono font-semibold text-xl md:text-2xl">{num.val}</p>
                       </div>
                     ))}
                  </div>
