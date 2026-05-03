@@ -27,7 +27,7 @@ const LICENSES = [
     country: "Sri Lanka", 
     zone: "Department of the Registrar of Companies",
     numbers: [
-      { label: "Registration No.", val: "P V 00362384" }
+      { label: "Registration No.", val: "PV 00362384" }
     ]
   }
 ];

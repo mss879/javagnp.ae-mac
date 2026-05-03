@@ -53,11 +53,12 @@ export default function WhyChooseUs() {
         {/* Right Side: Image Grid */}
         <div className="flex-1 relative w-full aspect-square max-w-2xl">
           <div className="absolute inset-0 grid grid-cols-2 grid-rows-2 gap-4 sm:gap-6">
+            {/* Top-left — slides in from top */}
             <motion.div 
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: -60 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
               className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl group"
             >
               <Image 
@@ -69,11 +70,12 @@ export default function WhyChooseUs() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </motion.div>
             
+            {/* Top-right — slides in from top */}
             <motion.div 
-              initial={{ opacity: 0, y: -30 }}
+              initial={{ opacity: 0, y: -60 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              transition={{ duration: 0.7, delay: 0.35, ease: "easeOut" }}
               className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl group mt-8 sm:mt-12"
             >
               <Image 
@@ -85,12 +87,13 @@ export default function WhyChooseUs() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </motion.div>
             
+            {/* Bottom-left — slides in from bottom */}
             <motion.div 
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl group -mt-8 sm:-mt-12"
+              transition={{ duration: 0.7, delay: 0.4, ease: "easeOut" }}
+              className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl group"
             >
               <Image 
                 src="/dubai/3.webp" 
@@ -101,12 +104,13 @@ export default function WhyChooseUs() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </motion.div>
             
+            {/* Bottom-right — slides in from bottom */}
             <motion.div 
-              initial={{ opacity: 0, y: -30 }}
+              initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl group"
+              transition={{ duration: 0.7, delay: 0.5, ease: "easeOut" }}
+              className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl group mt-8 sm:mt-12"
             >
               <Image 
                 src="/dubai/4.webp" 
