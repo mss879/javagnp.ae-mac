@@ -31,7 +31,7 @@ export default function WhyJavaGNP() {
         `}</style>
 
         {/* Bento Grid (Original 4-Column Layout) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 auto-rows-[minmax(180px,auto)] lg:auto-rows-[220px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 auto-rows-[minmax(180px,auto)] lg:auto-rows-[minmax(220px,auto)]">
 
           {/* Item 1: Scalable (2x3) with Marquee */}
           <motion.div
@@ -39,7 +39,7 @@ export default function WhyJavaGNP() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="col-span-1 md:col-span-2 row-span-3 relative rounded-[32px] overflow-hidden bg-zinc-100 p-8 sm:p-10 lg:p-12 border border-zinc-200 shadow-xl shadow-zinc-200/50 flex flex-col justify-between"
+            className="col-span-1 md:col-span-2 md:row-span-3 relative rounded-[32px] overflow-hidden bg-zinc-100 p-8 sm:p-10 lg:p-12 border border-zinc-200 shadow-xl shadow-zinc-200/50 flex flex-col justify-between min-h-[500px] md:min-h-0"
           >
 
 
@@ -113,7 +113,7 @@ export default function WhyJavaGNP() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className="col-span-1 md:col-span-1 row-span-2 relative rounded-[32px] overflow-hidden bg-zinc-50 text-zinc-900 p-8 flex flex-col justify-end group shadow-lg shadow-zinc-200/50 border border-zinc-200"
+            className="col-span-1 md:col-span-1 md:row-span-2 relative rounded-[32px] overflow-hidden bg-zinc-50 text-zinc-900 p-8 flex flex-col justify-end group shadow-lg shadow-zinc-200/50 border border-zinc-200 min-h-[350px] md:min-h-0"
           >
             <div className="absolute inset-0 z-0 top-0 h-[65%] overflow-hidden rounded-t-[32px]">
               <video
@@ -172,7 +172,7 @@ export default function WhyJavaGNP() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.6 }}
-            className="col-span-1 md:col-span-2 row-span-1 relative rounded-[32px] overflow-hidden bg-zinc-950 text-white p-8 flex flex-col sm:flex-row items-center sm:justify-between gap-6 group shadow-xl border border-zinc-800"
+            className="col-span-1 md:col-span-2 md:row-span-1 relative rounded-[32px] overflow-hidden bg-zinc-950 text-white p-8 flex flex-col sm:flex-row items-center sm:justify-between gap-6 group shadow-xl border border-zinc-800 text-center sm:text-left"
           >
             <div className="absolute inset-0 z-0">
               <video
@@ -185,7 +185,7 @@ export default function WhyJavaGNP() {
               />
               <div className="absolute inset-0 bg-gradient-to-r from-zinc-950 via-zinc-950/80 to-transparent pointer-events-none" />
             </div>
-            <div className="relative z-10 flex-1">
+            <div className="relative z-10 flex-1 flex flex-col items-center sm:items-start">
               <h3 className="text-3xl mb-2 tracking-wide text-brand-primary font-tech font-bold">Borderless Global Integration</h3>
               <p className="text-zinc-300 text-sm leading-relaxed max-w-sm">
                 Architected from the ground up for international scale, enabling frictionless collaboration and unified operations across diverse geopolitical markets.
