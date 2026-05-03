@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Outfit } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
+import TrackingScript from "./components/TrackingScript";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -187,6 +188,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} ${outfit.variable} ${techFont.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background">
+        <TrackingScript />
         {children}
 
         {/* Global Organization JSON-LD */}

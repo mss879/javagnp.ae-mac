@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
+import { useState, useRef, useEffect } from "react";
 import CurvedCorner from "../components/CurvedCorner";
 import Footer from "../components/Footer";
 
@@ -15,6 +16,55 @@ const NAV_LINKS = [
 
 export default function ContactClient() {
   const pathname = usePathname();
+  const [formState, setFormState] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMsg, setErrorMsg] = useState("");
+
+  // Anti-spam: record when the form was loaded
+  const formLoadedAt = useRef<number>(Date.now());
+  useEffect(() => {
+    formLoadedAt.current = Date.now();
+  }, []);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setFormState("loading");
+    setErrorMsg("");
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          firstName: formData.get("firstName"),
+          lastName: formData.get("lastName"),
+          email: formData.get("email"),
+          inquiryType: formData.get("subject"),
+          message: formData.get("message"),
+          // Anti-spam fields
+          website: formData.get("website"),       // Honeypot
+          _formLoadedAt: formLoadedAt.current,     // Timing check
+        }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        setErrorMsg(data.error || "Something went wrong");
+        setFormState("error");
+        return;
+      }
+
+      setFormState("success");
+      form.reset();
+    } catch {
+      setErrorMsg("Network error. Please try again.");
+      setFormState("error");
+    }
+  };
+
   return (
     <main className="relative w-full min-h-screen bg-gray-50 overflow-hidden font-sans text-gray-900 selection:bg-brand-primary selection:text-white">
       {/* ── Background Ambient Glow (Light Mode) ── */}
@@ -163,7 +213,7 @@ export default function ContactClient() {
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-[1.1] font-tech mb-8 text-gray-900">
-              Let's Build the <br className="hidden md:block" />
+              Let&apos;s Build the <br className="hidden md:block" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-primary-hover">
                 Future Together
               </span>
@@ -242,87 +292,102 @@ export default function ContactClient() {
               {/* Form Glow Effect */}
               <div className="absolute top-0 right-0 w-64 h-64 bg-brand-primary/5 blur-[80px] rounded-full pointer-events-none" />
 
-              <form className="relative z-10 space-y-6" onSubmit={(e) => e.preventDefault()}>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  {/* First Name */}
-                  <div className="space-y-2">
-                    <label htmlFor="firstName" className="block text-xs font-bold tracking-widest uppercase text-gray-500">First Name</label>
-                    <input
-                      type="text"
-                      id="firstName"
-                      placeholder="John"
-                      className="w-full px-5 py-4 rounded-xl bg-gray-50 border border-gray-200 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary transition-all duration-300"
-                    />
+              {/* Success State */}
+              {formState === "success" && (
+                <div className="relative z-10 text-center py-12">
+                  <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-green-50 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#10B981" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
                   </div>
-                  {/* Last Name */}
-                  <div className="space-y-2">
-                    <label htmlFor="lastName" className="block text-xs font-bold tracking-widest uppercase text-gray-500">Last Name</label>
-                    <input
-                      type="text"
-                      id="lastName"
-                      placeholder="Doe"
-                      className="w-full px-5 py-4 rounded-xl bg-gray-50 border border-gray-200 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary transition-all duration-300"
-                    />
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">Message Sent!</h3>
+                  <p className="text-gray-500 mb-6">We&apos;ll get back to you within 24 hours.</p>
+                  <button onClick={() => setFormState("idle")} className="text-brand-primary font-bold text-sm hover:underline cursor-pointer">Send another message</button>
+                </div>
+              )}
+
+              {/* Form */}
+              {formState !== "success" && (
+                <form className="relative z-10 space-y-6" onSubmit={handleSubmit}>
+                  {/* Honeypot — hidden from real users, bots auto-fill it */}
+                  <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', top: '-9999px', opacity: 0, height: 0, overflow: 'hidden' }}>
+                    <label htmlFor="website">Website</label>
+                    <input type="text" id="website" name="website" tabIndex={-1} autoComplete="off" />
                   </div>
-                </div>
 
-                {/* Email */}
-                <div className="space-y-2">
-                  <label htmlFor="email" className="block text-xs font-bold tracking-widest uppercase text-gray-500">Email Address</label>
-                  <input
-                    type="email"
-                    id="email"
-                    placeholder="john@company.com"
-                    className="w-full px-5 py-4 rounded-xl bg-gray-50 border border-gray-200 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary transition-all duration-300"
-                  />
-                </div>
+                  {/* Error */}
+                  {formState === "error" && (
+                    <div className="p-4 rounded-xl bg-red-50 border border-red-100 text-red-600 text-sm">
+                      {errorMsg}
+                    </div>
+                  )}
 
-                {/* Subject */}
-                <div className="space-y-2">
-                  <label htmlFor="subject" className="block text-xs font-bold tracking-widest uppercase text-gray-500">Inquiry Type</label>
-                  <div className="relative">
-                    <select
-                      id="subject"
-                      className="w-full px-5 py-4 rounded-xl bg-gray-50 border border-gray-200 text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary transition-all duration-300 appearance-none"
-                    >
-                      <option value="" disabled selected>Select an option</option>
-                      <option value="enterprise">Enterprise Software Development</option>
-                      <option value="cloud">Cloud Migration & Architecture</option>
-                      <option value="consulting">IT Consulting</option>
-                      <option value="other">Other Inquiry</option>
-                    </select>
-                    <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6" /></svg>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    {/* First Name */}
+                    <div className="space-y-2">
+                      <label htmlFor="firstName" className="block text-xs font-bold tracking-widest uppercase text-gray-500">First Name</label>
+                      <input type="text" id="firstName" name="firstName" placeholder="John" required maxLength={100} className="w-full px-5 py-4 rounded-xl bg-gray-50 border border-gray-200 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary transition-all duration-300" />
+                    </div>
+                    {/* Last Name */}
+                    <div className="space-y-2">
+                      <label htmlFor="lastName" className="block text-xs font-bold tracking-widest uppercase text-gray-500">Last Name</label>
+                      <input type="text" id="lastName" name="lastName" placeholder="Doe" required maxLength={100} className="w-full px-5 py-4 rounded-xl bg-gray-50 border border-gray-200 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary transition-all duration-300" />
                     </div>
                   </div>
-                </div>
 
-                {/* Message */}
-                <div className="space-y-2">
-                  <label htmlFor="message" className="block text-xs font-bold tracking-widest uppercase text-gray-500">Your Message</label>
-                  <textarea
-                    id="message"
-                    rows={5}
-                    placeholder="Tell us about your project or inquiry..."
-                    className="w-full px-5 py-4 rounded-xl bg-gray-50 border border-gray-200 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary transition-all duration-300 resize-none"
-                  />
-                </div>
+                  {/* Email */}
+                  <div className="space-y-2">
+                    <label htmlFor="email" className="block text-xs font-bold tracking-widest uppercase text-gray-500">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="john@company.com" required maxLength={254} className="w-full px-5 py-4 rounded-xl bg-gray-50 border border-gray-200 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary transition-all duration-300" />
+                  </div>
 
-                {/* Submit Button */}
-                <div className="pt-2">
-                  <button
-                    type="submit"
-                    className="relative group/btn text-sm font-bold tracking-widest uppercase text-white overflow-hidden rounded-xl px-8 py-5 transition-transform hover:-translate-y-0.5 active:translate-y-0 duration-300 bg-gradient-to-b from-brand-primary/90 to-brand-primary shadow-[0_6px_16px_rgba(220,38,38,0.3),inset_0_2px_4px_rgba(255,255,255,0.4),inset_0_-4px_6px_rgba(0,0,0,0.2)] border border-white/20 backdrop-blur-md w-full sm:w-auto min-w-[200px]"
-                  >
-                    <span className="relative z-10 drop-shadow-sm flex items-center justify-center gap-2">
-                      Send Message
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover/btn:translate-x-1 transition-transform duration-300"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
-                    </span>
-                    <div className="absolute inset-0 bg-gradient-to-b from-white/30 to-transparent opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300 z-0" />
-                    <div className="absolute inset-0 rounded-xl shadow-[inset_0_0_10px_rgba(255,255,255,0.3)] z-0" />
-                  </button>
-                </div>
-              </form>
+                  {/* Subject */}
+                  <div className="space-y-2">
+                    <label htmlFor="subject" className="block text-xs font-bold tracking-widest uppercase text-gray-500">Inquiry Type</label>
+                    <div className="relative">
+                      <select id="subject" name="subject" required className="w-full px-5 py-4 rounded-xl bg-gray-50 border border-gray-200 text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary transition-all duration-300 appearance-none" defaultValue="">
+                        <option value="" disabled>Select an option</option>
+                        <option value="enterprise">Enterprise Software Development</option>
+                        <option value="cloud">Cloud Migration & Architecture</option>
+                        <option value="consulting">IT Consulting</option>
+                        <option value="other">Other Inquiry</option>
+                      </select>
+                      <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6" /></svg>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Message */}
+                  <div className="space-y-2">
+                    <label htmlFor="message" className="block text-xs font-bold tracking-widest uppercase text-gray-500">Your Message</label>
+                    <textarea id="message" name="message" rows={5} placeholder="Tell us about your project or inquiry..." required maxLength={5000} className="w-full px-5 py-4 rounded-xl bg-gray-50 border border-gray-200 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary transition-all duration-300 resize-none" />
+                  </div>
+
+                  {/* Submit Button */}
+                  <div className="pt-2">
+                    <button
+                      type="submit"
+                      disabled={formState === "loading"}
+                      className="relative group/btn text-sm font-bold tracking-widest uppercase text-white overflow-hidden rounded-xl px-8 py-5 transition-transform hover:-translate-y-0.5 active:translate-y-0 duration-300 bg-gradient-to-b from-brand-primary/90 to-brand-primary shadow-[0_6px_16px_rgba(220,38,38,0.3),inset_0_2px_4px_rgba(255,255,255,0.4),inset_0_-4px_6px_rgba(0,0,0,0.2)] border border-white/20 backdrop-blur-md w-full sm:w-auto min-w-[200px] disabled:opacity-60 disabled:cursor-not-allowed"
+                    >
+                      <span className="relative z-10 drop-shadow-sm flex items-center justify-center gap-2">
+                        {formState === "loading" ? (
+                          <>
+                            <svg className="animate-spin h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" /><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" /></svg>
+                            Sending...
+                          </>
+                        ) : (
+                          <>
+                            Send Message
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover/btn:translate-x-1 transition-transform duration-300"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
+                          </>
+                        )}
+                      </span>
+                      <div className="absolute inset-0 bg-gradient-to-b from-white/30 to-transparent opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300 z-0" />
+                      <div className="absolute inset-0 rounded-xl shadow-[inset_0_0_10px_rgba(255,255,255,0.3)] z-0" />
+                    </button>
+                  </div>
+                </form>
+              )}
             </div>
           </motion.div>
 
