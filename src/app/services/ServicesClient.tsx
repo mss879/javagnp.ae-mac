@@ -217,7 +217,7 @@ export default function ServicesClient() {
               <span className="text-brand-primary font-bold tracking-widest uppercase text-sm">What We Do</span>
             </div>
             
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[5.5rem] tracking-tight leading-[1.05] font-tech mb-8 text-zinc-900">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[5.5rem] tracking-tight leading-[1.05] mb-8 text-zinc-900 font-tech font-semibold">
               Comprehensive <br className="hidden md:block"/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-primary-hover">
                 Digital Solutions.
@@ -255,7 +255,7 @@ export default function ServicesClient() {
                     </div>
                   </div>
                   
-                  <h2 className="text-4xl sm:text-5xl lg:text-[3.25rem] leading-[1.1] font-tech font-bold tracking-tight text-zinc-900 mb-6">
+                  <h2 className="text-4xl sm:text-5xl lg:text-[3.25rem] leading-[1.1] tracking-tight text-zinc-900 mb-6 font-tech font-semibold">
                     {service.title}
                   </h2>
                   
@@ -319,7 +319,7 @@ export default function ServicesClient() {
               <span className="h-px w-8 bg-brand-primary"></span>
               <span className="text-brand-primary font-bold tracking-widest uppercase text-sm">Ongoing Support</span>
             </div>
-            <h2 className="text-4xl lg:text-5xl font-tech font-bold tracking-tight text-zinc-900 mb-6">Managed Services</h2>
+            <h2 className="text-4xl lg:text-5xl tracking-tight text-zinc-900 mb-6 font-tech font-semibold">Managed Services</h2>
             <p className="text-lg text-zinc-600 font-sans leading-relaxed">
               Continuous operational support functions delivered through dedicated teams operating under defined service frameworks.
             </p>
@@ -356,7 +356,7 @@ export default function ServicesClient() {
                   <div className="w-12 h-12 rounded-xl bg-white border border-zinc-100 flex items-center justify-center text-brand-primary mb-6 shadow-sm group-hover:scale-110 transition-transform duration-500">
                     {item.icon}
                   </div>
-                  <h3 className="text-xl font-bold text-zinc-900 mb-3">{item.title}</h3>
+                  <h3 className="text-xl text-zinc-900 mb-3 font-tech font-semibold">{item.title}</h3>
                   <p className="text-zinc-600 leading-relaxed text-sm">{item.desc}</p>
                 </div>
               </motion.div>
@@ -385,13 +385,13 @@ export default function ServicesClient() {
                 <span className="h-px w-8 bg-brand-primary"></span>
                 <span className="text-brand-primary font-bold tracking-widest uppercase text-sm">Data Infrastructure</span>
               </div>
-              <h2 className="text-3xl md:text-4xl font-tech font-bold tracking-tight text-zinc-900 mb-6">Data Services</h2>
+              <h2 className="text-3xl md:text-4xl tracking-tight text-zinc-900 mb-6 font-tech font-semibold">Data Services</h2>
               <p className="text-zinc-600 font-sans leading-relaxed mb-10">
                 Structured support for data handling, validation, and processing to improve accuracy, control, and reporting consistency.
               </p>
               
               <div className="space-y-6">
-                <h4 className="font-bold text-zinc-900 text-sm uppercase tracking-wider border-b border-zinc-100 pb-2">Core Capabilities</h4>
+                <h4 className="text-zinc-900 text-sm uppercase tracking-wider border-b border-zinc-100 pb-2 font-tech font-semibold">Core Capabilities</h4>
                 <ul className="space-y-4">
                   {["Data Validation & Cleansing", "Structured Processing", "Reporting Consistency"].map((item, idx) => (
                     <li key={idx} className="flex items-center gap-3">
@@ -416,13 +416,13 @@ export default function ServicesClient() {
                 <span className="h-px w-8 bg-brand-primary"></span>
                 <span className="text-brand-primary font-bold tracking-widest uppercase text-sm">Internal Capabilities</span>
               </div>
-              <h2 className="text-3xl md:text-4xl font-tech font-bold tracking-tight text-zinc-900 mb-6">Technology Enablement</h2>
+              <h2 className="text-3xl md:text-4xl tracking-tight text-zinc-900 mb-6 font-tech font-semibold">Technology Enablement</h2>
               <p className="text-zinc-600 font-sans leading-relaxed mb-10">
                 Technology is deployed as an internal capability to strengthen operational control and service consistency.
               </p>
               
               <div className="space-y-6">
-                <h4 className="font-bold text-zinc-900 text-sm uppercase tracking-wider border-b border-zinc-100 pb-2">Capabilities</h4>
+                <h4 className="text-zinc-900 text-sm uppercase tracking-wider border-b border-zinc-100 pb-2 font-tech font-semibold">Capabilities</h4>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {["Workflow orchestration", "Knowledge repositories", "Performance dashboards", "Secure data handling"].map((item, idx) => (
                     <li key={idx} className="flex items-center gap-3">
@@ -456,7 +456,7 @@ export default function ServicesClient() {
             viewport={{ once: true }}
             className="text-center max-w-3xl mx-auto mb-16"
           >
-            <h2 className="text-4xl lg:text-5xl font-tech font-bold tracking-tight text-zinc-900 mb-6">Governance & Control</h2>
+            <h2 className="text-4xl lg:text-5xl tracking-tight text-zinc-900 mb-6 font-tech font-semibold">Governance & Control</h2>
             <p className="text-lg text-zinc-600 font-sans leading-relaxed">
               Ensuring consistency, security, and mitigation across all operational aspects.
             </p>
@@ -474,7 +474,7 @@ export default function ServicesClient() {
               <div className="w-14 h-14 rounded-2xl bg-white border border-zinc-100 flex items-center justify-center text-brand-primary mb-8 shadow-sm">
                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
               </div>
-              <h3 className="text-2xl font-bold text-zinc-900 mb-4">Risk Management</h3>
+              <h3 className="text-2xl text-zinc-900 mb-4 font-tech font-semibold">Risk Management</h3>
               <p className="text-zinc-600 mb-8 leading-relaxed">
                 Key risks are managed through structured controls, standardized processes, and rigorous oversight mechanisms.
               </p>
@@ -499,21 +499,21 @@ export default function ServicesClient() {
               <div className="w-14 h-14 rounded-2xl bg-white border border-zinc-100 flex items-center justify-center text-brand-primary mb-8 shadow-sm">
                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
               </div>
-              <h3 className="text-2xl font-bold text-zinc-900 mb-4">Mitigation Strategy</h3>
+              <h3 className="text-2xl text-zinc-900 mb-4 font-tech font-semibold">Mitigation Strategy</h3>
               <p className="text-zinc-600 mb-8 leading-relaxed">
                 Mitigation is achieved through standardized processes, secure systems, and periodic internal reviews. Every operational step consists of multiple checkpoints.
               </p>
               
               <div className="mt-auto grid grid-cols-1 sm:grid-cols-2 gap-8 pt-6 border-t border-zinc-200">
                 <div>
-                  <h4 className="font-bold text-zinc-900 mb-3">Standardized Workflows</h4>
+                  <h4 className="text-zinc-900 mb-3 font-tech font-semibold">Standardized Workflows</h4>
                   <ul className="space-y-2">
                     <li className="text-zinc-600 text-sm flex items-center gap-2"><span className="text-brand-primary">✓</span> Financial control & reporting</li>
                     <li className="text-zinc-600 text-sm flex items-center gap-2"><span className="text-brand-primary">✓</span> Information security protocols</li>
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-bold text-zinc-900 mb-3">Internal Policies</h4>
+                  <h4 className="text-zinc-900 mb-3 font-tech font-semibold">Internal Policies</h4>
                   <ul className="space-y-2">
                     <li className="text-zinc-600 text-sm flex items-center gap-2"><span className="text-brand-primary">✓</span> Operational monitoring</li>
                     <li className="text-zinc-600 text-sm flex items-center gap-2"><span className="text-brand-primary">✓</span> HR governance</li>
@@ -540,7 +540,7 @@ export default function ServicesClient() {
              viewport={{ once: true }}
              className="bg-zinc-50 border border-zinc-100 p-12 md:p-20 rounded-[32px] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)]"
           >
-            <h2 className="text-3xl md:text-5xl font-tech text-zinc-900 mb-6 font-bold">Ready to elevate your digital presence?</h2>
+            <h2 className="text-3xl md:text-5xl text-zinc-900 mb-6 font-tech font-semibold">Ready to elevate your digital presence?</h2>
             <p className="text-zinc-600 font-sans text-lg mb-10 max-w-2xl mx-auto">
               Partner with JavaGNP to access world-class technology solutions, scalable infrastructure, and dedicated professional services.
             </p>

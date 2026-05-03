@@ -91,7 +91,7 @@ export default function AdminLoginClient() {
                 Secure Access
               </span>
             </div>
-            <h1 className="text-2xl font-bold text-gray-900 tracking-tight">
+            <h1 className="text-2xl text-gray-900 tracking-tight font-tech font-semibold">
               Admin Dashboard
             </h1>
             <p className="text-sm text-gray-500 mt-2">

@@ -67,7 +67,7 @@ export default function Footer() {
 
             {/* Column 2: Quick Links */}
             <div className="space-y-6">
-              <h4 className="text-lg font-tech font-bold tracking-wide uppercase text-zinc-100">
+              <h4 className="text-lg tracking-wide uppercase text-zinc-100 font-tech font-semibold">
                 Company
               </h4>
               <ul className="space-y-3">
@@ -89,7 +89,7 @@ export default function Footer() {
 
             {/* Column 3: Services */}
             <div className="space-y-6">
-              <h4 className="text-lg font-tech font-bold tracking-wide uppercase text-zinc-100">
+              <h4 className="text-lg tracking-wide uppercase text-zinc-100 font-tech font-semibold">
                 Services
               </h4>
               <ul className="space-y-3">
@@ -105,14 +105,17 @@ export default function Footer() {
 
             {/* Column 4: Contact */}
             <div className="space-y-6">
-              <h4 className="text-lg font-tech font-bold tracking-wide uppercase text-zinc-100">
+              <h4 className="text-lg tracking-wide uppercase text-zinc-100 font-tech font-semibold">
                 Global HQ
               </h4>
               <address className="text-zinc-300 text-sm not-italic leading-relaxed">
-                Dubai Internet City<br />
-                Dubai, United Arab Emirates<br /><br />
-                <a href="mailto:contact@javagnp.ae" className="hover:text-brand-primary transition-colors duration-300">
-                  contact@javagnp.ae
+                Amber Gem Tower, Mezzanine Floor<br />
+                Sheikh Khalifa Street<br />
+                Ajman, United Arab Emirates<br /><br />
+                Tel: +971 56 822 6844<br />
+                Fax: +971 56 543 9655<br /><br />
+                <a href="mailto:info@javagnp.ae" className="hover:text-brand-primary transition-colors duration-300">
+                  info@javagnp.ae
                 </a>
               </address>
             </div>

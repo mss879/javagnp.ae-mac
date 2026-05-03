@@ -174,7 +174,7 @@ export default function AdminDashboard() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900 tracking-tight">Dashboard</h1>
+          <h1 className="text-3xl text-gray-900 tracking-tight font-tech font-semibold">Dashboard</h1>
           <p className="text-sm font-medium text-gray-500 mt-1">Analytics overview & quick notes</p>
         </div>
         {/* Tab Switcher */}
@@ -208,7 +208,7 @@ export default function AdminDashboard() {
           <div className="bg-white rounded-[32px] border border-gray-100 shadow-sm p-8">
             <div className="flex items-center gap-3 mb-8">
               <span className="w-1.5 h-6 rounded-full bg-brand-primary" />
-              <h3 className="text-sm font-bold tracking-widest uppercase text-gray-900">Visitor Trend (30 Days)</h3>
+              <h3 className="text-sm tracking-widest uppercase text-gray-900 font-tech font-semibold">Visitor Trend (30 Days)</h3>
             </div>
             <div className="flex items-end gap-1 h-48">
               {a.dailyTrend.map((d, i) => (
@@ -233,7 +233,7 @@ export default function AdminDashboard() {
             <div className="bg-white rounded-[32px] border border-gray-100 shadow-sm p-8">
               <div className="flex items-center gap-3 mb-6">
                 <span className="w-1.5 h-6 rounded-full bg-brand-primary" />
-                <h3 className="text-sm font-bold tracking-widest uppercase text-gray-900">Top Countries</h3>
+                <h3 className="text-sm tracking-widest uppercase text-gray-900 font-tech font-semibold">Top Countries</h3>
               </div>
               <div className="space-y-4">
                 {a.topCountries.length === 0 && <p className="text-sm text-gray-500">No data yet</p>}
@@ -247,7 +247,7 @@ export default function AdminDashboard() {
             <div className="bg-white rounded-[32px] border border-gray-100 shadow-sm p-8">
               <div className="flex items-center gap-3 mb-6">
                 <span className="w-1.5 h-6 rounded-full bg-brand-primary" />
-                <h3 className="text-sm font-bold tracking-widest uppercase text-gray-900">Top Pages</h3>
+                <h3 className="text-sm tracking-widest uppercase text-gray-900 font-tech font-semibold">Top Pages</h3>
               </div>
               <div className="space-y-4">
                 {a.topPages.length === 0 && <p className="text-sm text-gray-500">No data yet</p>}
@@ -261,7 +261,7 @@ export default function AdminDashboard() {
             <div className="bg-white rounded-[32px] border border-gray-100 shadow-sm p-8">
               <div className="flex items-center gap-3 mb-6">
                 <span className="w-1.5 h-6 rounded-full bg-brand-primary" />
-                <h3 className="text-sm font-bold tracking-widest uppercase text-gray-900">Devices</h3>
+                <h3 className="text-sm tracking-widest uppercase text-gray-900 font-tech font-semibold">Devices</h3>
               </div>
               <div className="space-y-4">
                 {a.deviceBreakdown.length === 0 && <p className="text-sm text-gray-500">No data yet</p>}
@@ -275,7 +275,7 @@ export default function AdminDashboard() {
             <div className="bg-white rounded-[32px] border border-gray-100 shadow-sm p-8">
               <div className="flex items-center gap-3 mb-6">
                 <span className="w-1.5 h-6 rounded-full bg-brand-primary" />
-                <h3 className="text-sm font-bold tracking-widest uppercase text-gray-900">Browsers</h3>
+                <h3 className="text-sm tracking-widest uppercase text-gray-900 font-tech font-semibold">Browsers</h3>
               </div>
               <div className="space-y-4">
                 {a.browserBreakdown.length === 0 && <p className="text-sm text-gray-500">No data yet</p>}
@@ -329,7 +329,7 @@ export default function AdminDashboard() {
                   <div onClick={() => { setEditingNote(note.id); setNoteTitle(note.title); setNoteContent(note.content); }} className="cursor-pointer h-full flex flex-col">
                     <div className="flex items-center gap-2 mb-3">
                       {note.is_pinned && <span className="text-amber-500"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="2"><path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48" /></svg></span>}
-                      <h4 className="font-bold text-lg text-gray-900 truncate tracking-tight">{note.title}</h4>
+                      <h4 className="text-lg text-gray-900 truncate tracking-tight font-tech font-semibold">{note.title}</h4>
                     </div>
                     <p className="text-sm text-gray-600 line-clamp-5 whitespace-pre-wrap flex-1 leading-relaxed">{note.content || "Click to add description..."}</p>
                     <p className="text-[10px] font-bold tracking-widest uppercase text-gray-400 mt-6 pt-4 border-t border-gray-200/50">{new Date(note.updated_at).toLocaleDateString()}</p>
@@ -343,7 +343,7 @@ export default function AdminDashboard() {
                 <div className="w-16 h-16 mx-auto bg-gray-50 rounded-full flex items-center justify-center text-gray-400 mb-4">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /><line x1="16" y1="13" x2="8" y2="13" /><line x1="16" y1="17" x2="8" y2="17" /><polyline points="10 9 9 9 8 9" /></svg>
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">No notes yet</h3>
+                <h3 className="text-lg text-gray-900 mb-2 font-tech font-semibold">No notes yet</h3>
                 <p className="text-gray-500 text-sm max-w-sm mx-auto">Create your first note to keep track of tasks, reminders, and important information.</p>
               </div>
             )}

@@ -14,7 +14,7 @@ export default function WhyJavaGNP() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-tech font-bold tracking-wide leading-[1.1] text-zinc-900"
+            className="text-4xl sm:text-5xl lg:text-6xl tracking-wide leading-[1.1] text-zinc-900 font-tech font-semibold"
           >
             Why <span className="text-brand-primary">JavaGNP</span>
           </motion.h2>
@@ -55,7 +55,7 @@ export default function WhyJavaGNP() {
 
             <div className="relative z-10 flex h-full flex-col justify-between gap-10 mt-auto">
               <div className="max-w-xl space-y-4">
-                <h3 className="text-3xl font-tech font-bold md:text-[40px] tracking-wide text-zinc-900 leading-tight">
+                <h3 className="text-3xl md:text-[40px] tracking-wide text-zinc-900 leading-tight font-tech font-semibold">
                   Infinite Scalability &<br />Adaptive Engineering
                 </h3>
                 <p className="text-sm text-zinc-600 md:text-base leading-relaxed max-w-lg">
@@ -127,7 +127,7 @@ export default function WhyJavaGNP() {
               <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-zinc-50 via-zinc-50/80 to-transparent pointer-events-none" />
             </div>
             <div className="relative z-10">
-              <h3 className="text-xl font-tech font-bold mb-2 tracking-wide">Zero-Trust Security Infrastructure</h3>
+              <h3 className="text-2xl mb-2 tracking-wide font-tech font-bold">Zero-Trust Security Infrastructure</h3>
               <p className="text-zinc-500 text-sm leading-relaxed">
                 Engineered with uncompromising data protection protocols, ensuring every interaction remains strictly controlled, isolated, and completely secure.
               </p>
@@ -143,7 +143,7 @@ export default function WhyJavaGNP() {
             className="col-span-1 md:col-span-1 row-span-1 relative rounded-[32px] overflow-hidden bg-white text-zinc-900 p-8 flex flex-col justify-center shadow-lg shadow-zinc-200/50 border border-zinc-200 transition-colors duration-300"
           >
             <div className="relative z-10">
-              <h3 className="text-lg font-tech font-bold mb-2 tracking-wide">Predictable, Agile Delivery</h3>
+              <h3 className="text-xl mb-2 tracking-wide font-tech font-bold">Predictable, Agile Delivery</h3>
               <p className="text-zinc-500 text-sm leading-relaxed">
                 Streamlined processes and proven frameworks that guarantee consistent, high-quality outcomes with total transparency.
               </p>
@@ -159,7 +159,7 @@ export default function WhyJavaGNP() {
             className="col-span-1 md:col-span-1 row-span-1 relative rounded-[32px] overflow-hidden bg-white text-zinc-900 p-8 flex flex-col justify-center shadow-lg shadow-zinc-200/50 border border-zinc-200 transition-colors duration-300"
           >
             <div className="relative z-10">
-              <h3 className="text-lg font-tech font-bold mb-2 tracking-wide">Intelligent Oversight & Control</h3>
+              <h3 className="text-xl mb-2 tracking-wide font-tech font-bold">Intelligent Oversight & Control</h3>
               <p className="text-zinc-500 text-sm leading-relaxed">
                 Robust governance models featuring transparent reporting layers and automated escalation paths to maintain complete operational command.
               </p>
@@ -186,7 +186,7 @@ export default function WhyJavaGNP() {
               <div className="absolute inset-0 bg-gradient-to-r from-zinc-950 via-zinc-950/80 to-transparent pointer-events-none" />
             </div>
             <div className="relative z-10 flex-1">
-              <h3 className="text-2xl font-tech font-bold mb-2 tracking-wide text-brand-primary">Borderless Global Integration</h3>
+              <h3 className="text-3xl mb-2 tracking-wide text-brand-primary font-tech font-bold">Borderless Global Integration</h3>
               <p className="text-zinc-300 text-sm leading-relaxed max-w-sm">
                 Architected from the ground up for international scale, enabling frictionless collaboration and unified operations across diverse geopolitical markets.
               </p>

@@ -183,7 +183,7 @@ export default function HowWeWorkClient() {
               <span className="text-brand-primary font-bold tracking-widest uppercase text-sm">Cross-Border Delivery</span>
             </div>
             
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[5.5rem] tracking-tight leading-[1.05] font-tech mb-8 text-zinc-900">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[5.5rem] tracking-tight leading-[1.05] mb-8 text-zinc-900 font-tech font-semibold">
               How Our Delivery <br className="hidden md:block"/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-primary-hover">
                 Is Structured.
@@ -208,7 +208,7 @@ export default function HowWeWorkClient() {
             viewport={{ once: true }}
             className="text-center max-w-3xl mx-auto mb-20"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-5 tracking-tight text-neutral-900 font-heading">The Delivery Lifecycle</h2>
+            <h2 className="text-4xl md:text-5xl mb-5 tracking-tight text-neutral-900 font-tech font-semibold">The Delivery Lifecycle</h2>
             <p className="text-lg text-neutral-500 leading-relaxed max-w-2xl mx-auto font-body">Each engagement follows a consistent five-step delivery structure.</p>
           </motion.div>
 
@@ -249,7 +249,7 @@ export default function HowWeWorkClient() {
                       </div>
                       <span className="text-3xl font-bold text-brand-primary/30 select-none font-heading">01</span>
                     </div>
-                    <h3 className="text-xl font-bold text-neutral-900 mb-2 font-heading">Engagement scoping</h3>
+                    <h3 className="text-xl text-neutral-900 mb-2 font-tech font-semibold">Engagement scoping</h3>
                     <p className="text-neutral-500 leading-relaxed font-body">Confirm service type, scope boundaries, expected outcomes, timeline, and reporting expectations.</p>
                   </div>
                 </div>
@@ -273,7 +273,7 @@ export default function HowWeWorkClient() {
                   </div>
                   <div className="pl-8">
                     <div>
-                      <h3 className="text-2xl font-bold text-neutral-900 mb-2 font-heading">Engagement scoping</h3>
+                      <h3 className="text-2xl text-neutral-900 mb-2 font-tech font-semibold">Engagement scoping</h3>
                       <p className="text-neutral-500 leading-relaxed text-[17px] font-body">Confirm service type, scope boundaries, expected outcomes, timeline, and reporting expectations.</p>
                     </div>
                   </div>
@@ -306,7 +306,7 @@ export default function HowWeWorkClient() {
                       </div>
                       <span className="text-3xl font-bold text-brand-primary/30 select-none font-heading">02</span>
                     </div>
-                    <h3 className="text-xl font-bold text-neutral-900 mb-2 font-heading">Resource planning</h3>
+                    <h3 className="text-xl text-neutral-900 mb-2 font-tech font-semibold">Resource planning</h3>
                     <p className="text-neutral-500 leading-relaxed font-body">Assign the delivery team, establish coverage requirements, and set up workflows and documentation.</p>
                   </div>
                 </div>
@@ -314,7 +314,7 @@ export default function HowWeWorkClient() {
                 <div className="hidden md:grid md:grid-cols-[1fr_56px_1fr] md:items-center w-full pb-20">
                   <div className="text-right pr-8">
                     <div>
-                      <h3 className="text-2xl font-bold text-neutral-900 mb-2 font-heading">Resource planning</h3>
+                      <h3 className="text-2xl text-neutral-900 mb-2 font-tech font-semibold">Resource planning</h3>
                       <p className="text-neutral-500 leading-relaxed text-[17px] font-body">Assign the delivery team, establish coverage requirements, and set up workflows and documentation.</p>
                     </div>
                   </div>
@@ -363,7 +363,7 @@ export default function HowWeWorkClient() {
                       </div>
                       <span className="text-3xl font-bold text-brand-primary/30 select-none font-heading">03</span>
                     </div>
-                    <h3 className="text-xl font-bold text-neutral-900 mb-2 font-heading">Execution and supervision</h3>
+                    <h3 className="text-xl text-neutral-900 mb-2 font-tech font-semibold">Execution and supervision</h3>
                     <p className="text-neutral-500 leading-relaxed font-body">Deliver services under defined service frameworks with supervision and quality checks.</p>
                   </div>
                 </div>
@@ -387,7 +387,7 @@ export default function HowWeWorkClient() {
                   </div>
                   <div className="pl-8">
                     <div>
-                      <h3 className="text-2xl font-bold text-neutral-900 mb-2 font-heading">Execution and supervision</h3>
+                      <h3 className="text-2xl text-neutral-900 mb-2 font-tech font-semibold">Execution and supervision</h3>
                       <p className="text-neutral-500 leading-relaxed text-[17px] font-body">Deliver services under defined service frameworks with supervision and quality checks.</p>
                     </div>
                   </div>
@@ -420,7 +420,7 @@ export default function HowWeWorkClient() {
                       </div>
                       <span className="text-3xl font-bold text-brand-primary/30 select-none font-heading">04</span>
                     </div>
-                    <h3 className="text-xl font-bold text-neutral-900 mb-2 font-heading">Performance monitoring</h3>
+                    <h3 className="text-xl text-neutral-900 mb-2 font-tech font-semibold">Performance monitoring</h3>
                     <p className="text-neutral-500 leading-relaxed font-body">Track progress against agreed outcomes and reporting cadence, with escalation where required.</p>
                   </div>
                 </div>
@@ -428,7 +428,7 @@ export default function HowWeWorkClient() {
                 <div className="hidden md:grid md:grid-cols-[1fr_56px_1fr] md:items-center w-full pb-20">
                   <div className="text-right pr-8">
                     <div>
-                      <h3 className="text-2xl font-bold text-neutral-900 mb-2 font-heading">Performance monitoring</h3>
+                      <h3 className="text-2xl text-neutral-900 mb-2 font-tech font-semibold">Performance monitoring</h3>
                       <p className="text-neutral-500 leading-relaxed text-[17px] font-body">Track progress against agreed outcomes and reporting cadence, with escalation where required.</p>
                     </div>
                   </div>
@@ -476,7 +476,7 @@ export default function HowWeWorkClient() {
                       </div>
                       <span className="text-3xl font-bold text-brand-primary/30 select-none font-heading">05</span>
                     </div>
-                    <h3 className="text-xl font-bold text-neutral-900 mb-2 font-heading">Continuous improvement</h3>
+                    <h3 className="text-xl text-neutral-900 mb-2 font-tech font-semibold">Continuous improvement</h3>
                     <p className="text-neutral-500 leading-relaxed font-body">Refine workflows, reporting, and execution controls to improve consistency and outcomes over time.</p>
                   </div>
                 </div>
@@ -500,7 +500,7 @@ export default function HowWeWorkClient() {
                   </div>
                   <div className="pl-8">
                     <div>
-                      <h3 className="text-2xl font-bold text-neutral-900 mb-2 font-heading">Continuous improvement</h3>
+                      <h3 className="text-2xl text-neutral-900 mb-2 font-tech font-semibold">Continuous improvement</h3>
                       <p className="text-neutral-500 leading-relaxed text-[17px] font-body">Refine workflows, reporting, and execution controls to improve consistency and outcomes over time.</p>
                     </div>
                   </div>
@@ -548,7 +548,7 @@ export default function HowWeWorkClient() {
                   <span className="h-px w-8 bg-brand-primary"></span>
                   <span className="text-brand-primary font-bold tracking-widest uppercase text-sm">Built-in controls</span>
                 </div>
-                <h2 className="text-3xl md:text-5xl font-tech tracking-tight mb-6 text-zinc-900">Operational Excellence</h2>
+                <h2 className="text-3xl md:text-5xl tracking-tight mb-6 text-zinc-900 font-tech font-semibold">Operational Excellence</h2>
                 <p className="text-zinc-600 font-sans text-lg mb-12">
                   We integrate robust controls directly into our delivery model to ensure consistency, security, and quality at every step of the engagement.
                 </p>
@@ -573,7 +573,7 @@ export default function HowWeWorkClient() {
                     <div className="relative w-14 h-14 rounded-2xl bg-zinc-50 border border-zinc-100 flex items-center justify-center mb-6 text-brand-primary shadow-sm group-hover:bg-brand-primary/5 group-hover:border-brand-primary/20 group-hover:scale-110 transition-all duration-500">
                       {control.icon}
                     </div>
-                    <h4 className="text-zinc-900 font-bold mb-3 text-lg">{control.title}</h4>
+                    <h4 className="text-zinc-900 mb-3 text-lg font-tech font-semibold">{control.title}</h4>
                     <p className="text-zinc-500 text-sm leading-relaxed relative z-10">{control.desc}</p>
                     
                     {/* Hover Arrow */}
@@ -600,7 +600,7 @@ export default function HowWeWorkClient() {
             <div className="absolute -bottom-1/2 -right-1/4 w-[600px] h-[600px] bg-brand-primary opacity-[0.03] blur-[100px] rounded-full pointer-events-none" />
 
             <div className="relative z-10 max-w-2xl">
-              <h2 className="text-3xl md:text-4xl font-tech text-zinc-900 mb-4">What to send to scope an engagement</h2>
+              <h2 className="text-3xl md:text-4xl text-zinc-900 mb-4 font-tech font-semibold">What to send to scope an engagement</h2>
               <p className="text-zinc-600 font-sans mb-8">
                 To help us understand your needs and provide an accurate proposal, please include the following details in your initial request:
               </p>

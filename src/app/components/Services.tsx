@@ -92,7 +92,7 @@ export default function Services() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-tech font-bold tracking-wide leading-[1.1] text-white"
+            className="text-4xl sm:text-5xl lg:text-6xl tracking-wide leading-[1.1] text-white font-tech font-semibold"
           >
             Comprehensive <span className="text-brand-primary">Services</span>
           </motion.h2>

@@ -126,7 +126,7 @@ export default function PrivacyClient() {
             animate={{ opacity: 1, y: 0 }}
             className="bg-white p-8 sm:p-12 md:p-16 rounded-[32px] border border-zinc-200/60 shadow-sm"
           >
-            <h1 className="text-4xl sm:text-5xl font-tech font-bold tracking-tight mb-8">Privacy Policy</h1>
+            <h1 className="text-4xl sm:text-5xl tracking-tight mb-8 font-tech font-semibold">Privacy Policy</h1>
             <div className="space-y-6 text-zinc-600 leading-relaxed font-sans">
               <p>
                 <strong>Effective Date:</strong> January 1, 2024
@@ -135,12 +135,12 @@ export default function PrivacyClient() {
                 At Java Global Nexus Platform (Pvt) Ltd ("JavaGNP", "we", "our", or "us"), we are committed to protecting and respecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website (javagnp.ae) or engage with our enterprise IT solutions, AI innovation, and global managed services.
               </p>
               
-              <h2 className="text-2xl font-bold text-zinc-900 mt-12 mb-4">1. Information We Collect</h2>
+              <h2 className="text-2xl text-zinc-900 mt-12 mb-4 font-tech font-semibold">1. Information We Collect</h2>
               <p>
                 We may collect personal identification information from Users in a variety of ways, including, but not limited to, when Users visit our site, fill out a form, and in connection with other activities, services, features, or resources we make available on our Site. Users may be asked for, as appropriate, name, email address, mailing address, and phone number.
               </p>
               
-              <h2 className="text-2xl font-bold text-zinc-900 mt-12 mb-4">2. How We Use Collected Information</h2>
+              <h2 className="text-2xl text-zinc-900 mt-12 mb-4 font-tech font-semibold">2. How We Use Collected Information</h2>
               <p>
                 JavaGNP may collect and use Users' personal information for the following purposes:
               </p>
@@ -150,22 +150,22 @@ export default function PrivacyClient() {
                 <li><strong>To send periodic emails:</strong> We may use the email address to respond to inquiries, questions, and/or other requests.</li>
               </ul>
               
-              <h2 className="text-2xl font-bold text-zinc-900 mt-12 mb-4">3. How We Protect Your Information</h2>
+              <h2 className="text-2xl text-zinc-900 mt-12 mb-4 font-tech font-semibold">3. How We Protect Your Information</h2>
               <p>
                 We adopt appropriate data collection, storage, and processing practices and security measures to protect against unauthorized access, alteration, disclosure, or destruction of your personal information, username, password, transaction information, and data stored on our Site.
               </p>
               
-              <h2 className="text-2xl font-bold text-zinc-900 mt-12 mb-4">4. Sharing Your Personal Information</h2>
+              <h2 className="text-2xl text-zinc-900 mt-12 mb-4 font-tech font-semibold">4. Sharing Your Personal Information</h2>
               <p>
                 We do not sell, trade, or rent Users' personal identification information to others. We may share generic aggregated demographic information not linked to any personal identification information regarding visitors and users with our business partners, trusted affiliates, and advertisers for the purposes outlined above.
               </p>
               
-              <h2 className="text-2xl font-bold text-zinc-900 mt-12 mb-4">5. Changes to This Privacy Policy</h2>
+              <h2 className="text-2xl text-zinc-900 mt-12 mb-4 font-tech font-semibold">5. Changes to This Privacy Policy</h2>
               <p>
                 JavaGNP has the discretion to update this privacy policy at any time. When we do, we will revise the updated date at the bottom of this page. We encourage Users to frequently check this page for any changes to stay informed about how we are helping to protect the personal information we collect.
               </p>
               
-              <h2 className="text-2xl font-bold text-zinc-900 mt-12 mb-4">6. Contacting Us</h2>
+              <h2 className="text-2xl text-zinc-900 mt-12 mb-4 font-tech font-semibold">6. Contacting Us</h2>
               <p>
                 If you have any questions about this Privacy Policy, the practices of this site, or your dealings with this site, please contact us at: <a href="mailto:contact@javagnp.ae" className="text-brand-primary font-bold hover:underline transition-all">contact@javagnp.ae</a>
               </p>

@@ -51,21 +51,21 @@ const contactJsonLd = {
     contactPoint: [
       {
         "@type": "ContactPoint",
-        email: "contact@javagnp.ae",
+        email: "info@javagnp.ae",
         contactType: "sales",
         availableLanguage: ["English"],
       },
       {
         "@type": "ContactPoint",
-        email: "contact@javagnp.ae",
+        email: "info@javagnp.ae",
         contactType: "customer service",
         availableLanguage: ["English"],
       },
     ],
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Dubai Internet City",
-      addressLocality: "Dubai",
+      streetAddress: "Amber Gem Tower, Mezzanine Floor, Sheikh Khalifa Street",
+      addressLocality: "Ajman",
       addressCountry: "AE",
     },
   },

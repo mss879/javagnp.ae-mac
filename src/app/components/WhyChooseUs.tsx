@@ -17,7 +17,7 @@ export default function WhyChooseUs() {
         >
 
           
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-tech tracking-tight leading-[1.1]">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-[1.1] font-tech font-semibold">
             Global Expertise, <br />
             <span className="text-brand-primary">Local Excellence.</span>
           </h2>

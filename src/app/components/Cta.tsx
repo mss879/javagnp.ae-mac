@@ -31,7 +31,7 @@ export default function Cta() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-            className="text-4xl sm:text-5xl md:text-6xl font-tech font-bold tracking-wide leading-[1.1]"
+            className="text-4xl sm:text-5xl md:text-6xl tracking-wide leading-[1.1] font-tech font-semibold"
           >
             Build the future of your <br className="hidden md:block" />
             global operations <span className="text-brand-primary">today.</span>

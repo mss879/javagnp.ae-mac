@@ -4,7 +4,9 @@ import Image from "next/image";
 import CurvedCorner from "./CurvedCorner";
 import { motion, AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useState, useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 /* ═══════════════════════════════════════════════════
    Navigation links
@@ -59,7 +61,22 @@ const STATS = [
    ═══════════════════════════════════════════════════ */
 export default function Hero() {
   const pathname = usePathname();
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(() => {
+    if (isMenuOpen) {
+      gsap.to(menuRef.current, { autoAlpha: 1, x: 0, duration: 0.5, ease: "power3.out" });
+      gsap.fromTo(
+        ".gsap-menu-item",
+        { x: 50, opacity: 0 },
+        { x: 0, opacity: 1, duration: 0.4, stagger: 0.1, ease: "power3.out", delay: 0.2 }
+      );
+    } else {
+      gsap.to(menuRef.current, { autoAlpha: 0, x: "100%", duration: 0.4, ease: "power3.in" });
+    }
+  }, { dependencies: [isMenuOpen] });
+
   return (
     <div className="w-full bg-white flex flex-col p-[3px] overflow-hidden">
       <section
@@ -85,91 +102,32 @@ export default function Hero() {
       {/* ══════════════════════════════════════════
           DESKTOP NAV — Logo badge (top‑left)
          ══════════════════════════════════════════ */}
-      <div className="hidden xl:flex absolute top-0 left-0 bg-white rounded-br-[32px] z-[60] pt-2 pl-4 pr-5 pb-2 items-center justify-center pointer-events-auto shadow-sm">
+      <div className="hidden xl:flex absolute top-6 left-6 bg-white rounded-2xl z-[60] px-5 py-2 items-center justify-center pointer-events-auto shadow-xl">
         <a href="/" className="flex items-center">
           <Image
             src="/logo.png"
             alt="Company Logo"
             width={200}
             height={56}
-            className="h-14 w-auto object-contain"
+            className="h-12 w-auto object-contain"
           />
         </a>
-
-        {/* curved corners */}
-        <CurvedCorner
-          size={24}
-          rotation={0}
-          className="top-0 -right-[23.5px]"
-        />
-        <CurvedCorner
-          size={24}
-          rotation={0}
-          className="left-0 -bottom-[23.5px]"
-        />
       </div>
 
       {/* ══════════════════════════════════════════
-          DESKTOP NAV — Links badge (top‑right)
+          DESKTOP NAV — Menu badge (top‑right)
          ══════════════════════════════════════════ */}
-      <div className="hidden xl:flex absolute top-0 right-0 bg-white rounded-bl-[32px] z-[60] pt-3 pr-5 pl-5 pb-3 items-center gap-3 pointer-events-auto shadow-sm">
-        <div className="flex items-center gap-6 mr-1">
-          {NAV_LINKS.map((l) => {
-            const isActive = pathname === l.href || (l.href !== '/' && pathname?.startsWith(l.href));
-            return (
-              <a
-                key={l.href}
-                href={l.href}
-                className={`relative px-4 py-2 text-sm font-extrabold tracking-widest uppercase transition-all duration-300 group flex items-center justify-center ${
-                  isActive ? "text-brand-primary" : "text-zinc-900"
-                }`}
-              >
-                {/* Hover Pill Background */}
-                {!isActive && (
-                  <span className="absolute inset-0 bg-zinc-100 rounded-xl scale-50 opacity-0 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-100 group-hover:opacity-100 z-0" />
-                )}
-                
-                {/* Active Pill Background */}
-                {isActive && (
-                  <span className="absolute inset-0 bg-brand-primary/5 border border-brand-primary/10 rounded-xl z-0 shadow-[inset_0_0_12px_rgba(220,38,38,0.02)]" />
-                )}
-
-                {/* Text & Active Dot */}
-                <span className="relative z-10 flex items-center gap-2 transition-transform duration-300 group-hover:scale-105">
-                   {isActive && (
-                     <span className="w-1.5 h-1.5 rounded-full bg-brand-primary shadow-[0_0_8px_rgba(220,38,38,0.6)] animate-pulse" />
-                   )}
-                   <span className="group-hover:text-brand-primary transition-colors duration-300">{l.label}</span>
-                </span>
-              </a>
-            );
-          })}
-
-          {/* Contact */}
-          <div className="flex items-center pl-2">
-            <a
-              href="/contact"
-              className="relative group/btn text-sm font-bold tracking-widest uppercase text-white overflow-hidden rounded-xl px-6 py-3 transition-transform hover:-translate-y-0.5 active:translate-y-0 duration-300 bg-gradient-to-b from-brand-primary/90 to-brand-primary shadow-[0_6px_16px_rgba(220,38,38,0.3),inset_0_2px_4px_rgba(255,255,255,0.4),inset_0_-4px_6px_rgba(0,0,0,0.2)] border border-white/20 backdrop-blur-md"
-            >
-              <span className="relative z-10 drop-shadow-sm">Contact</span>
-              <div className="absolute inset-0 bg-gradient-to-b from-white/30 to-transparent opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300 z-0" />
-              <div className="absolute inset-0 rounded-xl shadow-[inset_0_0_10px_rgba(255,255,255,0.3)] z-0" />
-            </a>
-          </div>
-        </div>
-
-        {/* curved corners */}
-        <CurvedCorner
-          size={24}
-          rotation={90}
-          className="top-0 -left-[23.5px]"
-        />
-        <CurvedCorner
-          size={24}
-          rotation={90}
-          className="right-0 -bottom-[23.5px]"
-        />
-      </div>
+      <button 
+        onClick={() => setIsMenuOpen(true)} 
+        className="hidden xl:flex absolute top-6 right-6 bg-white rounded-2xl z-[60] px-6 py-3 items-center justify-center pointer-events-auto shadow-xl text-zinc-900 font-extrabold uppercase tracking-widest text-sm gap-3 hover:text-brand-primary transition-colors cursor-pointer"
+      >
+        <span>Menu</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
 
       {/* ══════════════════════════════════════════
           MOBILE NAV
@@ -187,66 +145,98 @@ export default function Hero() {
 
         <div className="flex items-center gap-3">
           <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="relative group/btn text-sm font-bold tracking-widest uppercase text-white overflow-hidden rounded-xl px-4 py-2 sm:px-6 sm:py-3 transition-transform hover:-translate-y-0.5 active:translate-y-0 duration-300 bg-gradient-to-b from-brand-primary/90 to-brand-primary shadow-[0_6px_16px_rgba(220,38,38,0.3),inset_0_2px_4px_rgba(255,255,255,0.4),inset_0_-4px_6px_rgba(0,0,0,0.2)] border border-white/20 backdrop-blur-md flex items-center gap-2"
-            aria-label="Toggle menu"
+            onClick={() => setIsMenuOpen(true)}
+            className="relative group/btn text-sm font-bold tracking-widest uppercase text-white overflow-hidden rounded-xl px-4 py-2 transition-transform hover:-translate-y-0.5 active:translate-y-0 duration-300 bg-gradient-to-b from-brand-primary/90 to-brand-primary shadow-[0_4px_12px_rgba(220,38,38,0.3)] flex items-center gap-2"
           >
-            <span className="relative z-10 drop-shadow-sm flex items-center gap-2">
-              <span className="relative w-[16px] h-[12px] shrink-0 inline-flex flex-col justify-between" aria-hidden="true">
-                <span className={`w-full h-[2px] bg-white rounded-sm transition-all duration-300 ${isMobileMenuOpen ? "rotate-45 translate-y-[5px]" : ""}`} />
-                <span className={`w-full h-[2px] bg-white rounded-sm transition-all duration-300 ${isMobileMenuOpen ? "opacity-0" : ""}`} />
-                <span className={`w-full h-[2px] bg-white rounded-sm transition-all duration-300 ${isMobileMenuOpen ? "-rotate-45 -translate-y-[5px]" : ""}`} />
-              </span>
-              <span>{isMobileMenuOpen ? "Close" : "Menu"}</span>
+            <span className="relative z-10 flex items-center gap-2">
+              <span>Menu</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+              </svg>
             </span>
-            <div className="absolute inset-0 bg-gradient-to-b from-white/30 to-transparent opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300 z-0" />
-            <div className="absolute inset-0 rounded-xl shadow-[inset_0_0_10px_rgba(255,255,255,0.3)] z-0" />
           </button>
         </div>
       </div>
 
       {/* ══════════════════════════════════════════
-          MOBILE MENU OVERLAY
+          GSAP RIGHT SIDE MENU OVERLAY
          ══════════════════════════════════════════ */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.2 }}
-            className="xl:hidden absolute top-[65px] left-0 w-full bg-white z-[50] border-b border-gray-100 shadow-xl flex flex-col p-4 pointer-events-auto"
+      <div 
+        ref={menuRef}
+        className="fixed top-0 right-0 w-full max-w-[400px] h-full z-[100] bg-zinc-950/95 backdrop-blur-xl flex flex-col items-start justify-center invisible pointer-events-none shadow-2xl translate-x-full border-l border-white/10 px-8 md:px-12"
+      >
+        {/* Close Button */}
+        <button 
+          onClick={() => setIsMenuOpen(false)}
+          className="absolute top-6 right-6 xl:top-8 xl:right-8 w-12 h-12 flex items-center justify-center bg-white/10 hover:bg-white/20 rounded-full transition-colors pointer-events-auto text-white cursor-pointer"
+          aria-label="Close menu"
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+
+        <div className="flex flex-col items-start gap-6 md:gap-8 pointer-events-auto w-full">
+          {NAV_LINKS.map((l) => (
+            <a
+              key={l.href}
+              href={l.href}
+              className="gsap-menu-item text-3xl md:text-5xl font-extrabold uppercase tracking-widest text-white hover:text-brand-primary transition-colors text-left"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              {l.label}
+            </a>
+          ))}
+          <a
+            href="/contact"
+            className="gsap-menu-item text-3xl md:text-5xl font-extrabold uppercase tracking-widest text-white hover:text-brand-primary transition-colors text-left"
+            onClick={() => setIsMenuOpen(false)}
           >
-            {NAV_LINKS.map((l) => (
-              <a
-                key={l.href}
-                href={l.href}
-                className="py-4 border-b border-gray-100 text-lg font-bold uppercase tracking-widest text-zinc-900 flex justify-between items-center"
-              >
-                {l.label}
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-brand-primary">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
+            Contact
+          </a>
+
+          {/* Socials */}
+          <div className="gsap-menu-item mt-6 md:mt-10 flex flex-col gap-4 w-full">
+            <span className="text-xs font-bold tracking-widest uppercase text-white/50">Socials</span>
+            <div className="flex items-center gap-5 text-white">
+              {/* Instagram */}
+              <a href="#" className="hover:text-brand-primary transition-colors hover:scale-110" aria-label="Instagram">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                 </svg>
               </a>
-            ))}
-            <a
-              href="/contact"
-              className="mt-6 text-center text-sm font-bold tracking-widest uppercase text-white rounded-xl px-6 py-4 bg-gradient-to-b from-brand-primary/90 to-brand-primary shadow-[0_6px_16px_rgba(220,38,38,0.3),inset_0_2px_4px_rgba(255,255,255,0.4),inset_0_-4px_6px_rgba(0,0,0,0.2)] border border-white/20"
-            >
-              Contact Us
-            </a>
-          </motion.div>
-        )}
-      </AnimatePresence>      {/* ══════════════════════════════════════════
+              {/* Facebook */}
+              <a href="#" className="hover:text-brand-primary transition-colors hover:scale-110" aria-label="Facebook">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                </svg>
+              </a>
+              {/* LinkedIn */}
+              <a href="#" className="hover:text-brand-primary transition-colors hover:scale-110" aria-label="LinkedIn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                  <rect x="2" y="9" width="4" height="12"></rect>
+                  <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>      {/* ══════════════════════════════════════════
           MAIN HERO CONTENT
          ══════════════════════════════════════════ */}
-      <div className="relative z-20 w-full h-full flex items-end md:items-center px-4 sm:px-12 lg:px-20 justify-start pb-[28vh] md:pb-0">
+      <div className="relative z-20 w-full h-full flex items-end md:items-center px-5 xl:px-6 justify-start pb-[28vh] md:pb-0">
         <div className="flex flex-col justify-center items-start text-left bg-zinc-950/40 backdrop-blur-xl border border-white/20 p-5 sm:p-6 rounded-2xl md:rounded-3xl shadow-2xl w-full sm:w-auto max-w-[1100px]">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
-            className="text-[34px] leading-[1.15] sm:text-5xl md:text-5xl lg:text-[4rem] xl:text-[4.5rem] 2xl:text-[5rem] tracking-tight md:leading-[1.05] font-tech text-white m-0"
+            className="text-[34px] leading-[1.15] sm:text-5xl md:text-5xl lg:text-[4rem] xl:text-[4.5rem] 2xl:text-[5rem] tracking-tight md:leading-[1.05] font-bold text-white m-0 font-tech"
           >
             Your Partner in Technology,<br />
             Innovation, and Growth

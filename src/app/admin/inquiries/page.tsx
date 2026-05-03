@@ -99,7 +99,7 @@ export default function InquiriesPage() {
       {/* Header */}
       <div>
         <div className="flex items-center gap-3">
-          <h1 className="text-3xl font-bold text-gray-900 tracking-tight">Inquiries</h1>
+          <h1 className="text-3xl text-gray-900 tracking-tight font-tech font-semibold">Inquiries</h1>
           {newCount > 0 && (
             <span className="px-3 py-1 rounded-full bg-red-50 text-brand-primary text-xs font-bold tracking-widest uppercase border border-red-100 shadow-sm">
               {newCount} new
@@ -143,7 +143,7 @@ export default function InquiriesPage() {
             <div className="w-16 h-16 mx-auto bg-gray-50 rounded-full flex items-center justify-center text-gray-400 mb-4">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></svg>
             </div>
-            <h3 className="text-lg font-bold text-gray-900 mb-2">No inquiries found</h3>
+            <h3 className="text-lg text-gray-900 mb-2 font-tech font-semibold">No inquiries found</h3>
             <p className="text-gray-500 text-sm">Try adjusting your search or filters.</p>
           </div>
         )}

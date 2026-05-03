@@ -25,9 +25,9 @@ const COMMODITIES = [
 const LICENSES = [
   { 
     country: "Sri Lanka", 
-    zone: "Government Registration",
+    zone: "Department of the Registrar of Companies",
     numbers: [
-      { label: "COMPANY REGISTRATION NO.", val: "P V 00362384" }
+      { label: "Registration No.", val: "P V 00362384" }
     ]
   }
 ];
@@ -154,7 +154,7 @@ export default function AboutClient() {
               <span className="text-brand-primary font-bold tracking-widest uppercase text-sm">Our Identity</span>
             </div>
             
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[5.5rem] tracking-tight leading-[1.05] font-tech mb-8 text-zinc-900">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[5.5rem] tracking-tight leading-[1.05] mb-8 text-zinc-900 font-tech font-semibold">
               About <br className="hidden md:block"/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-primary-hover">
                 JavaGNP.
@@ -185,8 +185,8 @@ export default function AboutClient() {
               <div className="inline-flex items-center gap-3 mb-6">
                 <span className="text-brand-primary font-bold tracking-widest uppercase text-xs">The Foundation</span>
               </div>
-              <h2 className="text-3xl font-tech font-bold text-zinc-900 mb-6">Parent Company</h2>
-              <h3 className="text-xl font-bold text-brand-primary mb-4">PEY AND CEY WORLD WIDE SUGAR TRADING LLC</h3>
+              <h2 className="text-3xl text-zinc-900 mb-6 font-tech font-semibold">Parent Company</h2>
+              <h3 className="text-xl text-brand-primary mb-4 font-tech font-semibold">PEY AND CEY WORLD WIDE SUGAR TRADING LLC</h3>
               <p className="text-zinc-600 leading-relaxed">
                 The parent company is a mainland limited liability company incorporated in Dubai, United Arab Emirates, established in 2023.
               </p>
@@ -203,7 +203,7 @@ export default function AboutClient() {
               <div className="inline-flex items-center gap-3 mb-6">
                 <span className="text-brand-primary font-bold tracking-widest uppercase text-xs">Group Structure</span>
               </div>
-              <h2 className="text-3xl font-tech font-bold text-zinc-900 mb-6">Operational Alignment</h2>
+              <h2 className="text-3xl text-zinc-900 mb-6 font-tech font-semibold">Operational Alignment</h2>
               <p className="text-zinc-600 leading-relaxed mb-8">
                 Strategic oversight, service standards, and market engagement are guided by the parent company, while execution, monitoring, and delivery functions are centralized within the Sri Lankan operation.
               </p>
@@ -238,7 +238,7 @@ export default function AboutClient() {
                   <span className="h-px w-8 bg-brand-primary"></span>
                   <span className="text-brand-primary font-bold tracking-widest uppercase text-sm">Global Trade Networks</span>
                  </div>
-                 <h2 className="text-4xl lg:text-5xl font-tech font-bold tracking-tight text-zinc-900 mb-6">Core Operations</h2>
+                 <h2 className="text-4xl lg:text-5xl tracking-tight text-zinc-900 mb-6 font-tech font-semibold">Core Operations</h2>
                  <p className="text-lg text-zinc-600 font-sans leading-relaxed mb-10">
                    The parent company operates within established international trading networks and maintains overseas commercial relationships across multiple markets, driving diversified commodity trading.
                  </p>
@@ -268,7 +268,7 @@ export default function AboutClient() {
                          <span className="w-1.5 h-1.5 rounded-full bg-brand-primary animate-pulse" />
                          <span className="text-xs font-bold tracking-widest uppercase text-zinc-500">Global Vertical</span>
                        </div>
-                       <h3 className="text-2xl font-tech font-bold text-zinc-900 mb-3">{com.title}</h3>
+                       <h3 className="text-2xl text-zinc-900 mb-3 font-tech font-semibold">{com.title}</h3>
                        <p className="text-zinc-600 text-sm md:text-base leading-relaxed">{com.desc}</p>
                      </div>
                   </motion.div>
@@ -290,7 +290,7 @@ export default function AboutClient() {
             viewport={{ once: true }}
             className="mb-16 text-center max-w-4xl mx-auto"
           >
-             <h2 className="text-4xl lg:text-5xl font-tech font-bold tracking-tight text-zinc-900 mb-6">Global Regulatory Presence</h2>
+             <h2 className="text-4xl lg:text-5xl tracking-tight text-zinc-900 mb-6 font-tech font-semibold">Global Regulatory Presence</h2>
              <p className="text-lg text-zinc-600 font-sans leading-relaxed">
                Operating with full compliance and structural transparency across established international trade jurisdictions. Its operational maturity, financial continuity, and exposure to cross-border trade provide the foundation for group-level expansion into technology-enabled and platform-based global service delivery models.
              </p>
@@ -307,14 +307,19 @@ export default function AboutClient() {
                 className="w-full p-8 rounded-3xl bg-white border border-zinc-200/60 shadow-sm"
               >
                  <div className="mb-6">
-                   <h3 className="text-lg font-bold text-brand-primary">{lic.country}</h3>
-                   <p className="text-zinc-500 font-medium text-sm">{lic.zone}</p>
+                   <div className="flex items-center gap-4 mb-4">
+                     <Image src="/Goverment Logo.jpg.jpeg" alt="Government Logo" width={64} height={64} className="object-contain rounded-md" />
+                     <div>
+                       <h3 className="text-lg text-brand-primary font-tech font-semibold">{lic.country}</h3>
+                       <p className="text-zinc-500 font-medium text-sm leading-snug max-w-[200px]">{lic.zone}</p>
+                     </div>
+                   </div>
                  </div>
-                 <div className="space-y-4 pt-6 border-t border-zinc-100">
+                 <div className="space-y-4 pt-4 border-t border-zinc-100">
                     {lic.numbers.map((num, i) => (
                       <div key={i}>
                         <p className="text-xs text-zinc-400 uppercase tracking-wider mb-1">{num.label}</p>
-                        <p className="text-zinc-900 font-mono font-medium">{num.val}</p>
+                        <p className="text-zinc-900 font-mono font-medium text-lg">{num.val}</p>
                       </div>
                     ))}
                  </div>
@@ -350,14 +355,14 @@ export default function AboutClient() {
                   <span className="h-px w-8 bg-brand-primary"></span>
                   <span className="text-brand-primary font-bold tracking-widest uppercase text-sm">Governance</span>
                 </div>
-                <h2 className="text-4xl lg:text-5xl font-tech font-bold tracking-tight text-zinc-900 mb-6">Unified Group Oversight Model</h2>
+                <h2 className="text-4xl lg:text-5xl tracking-tight text-zinc-900 mb-6 font-tech font-semibold">Unified Group Oversight Model</h2>
                 <p className="text-lg text-zinc-600 font-sans leading-relaxed mb-10">
                   Governance is maintained through a unified group oversight model, with strategic direction provided by the parent company and operational accountability exercised at the local entity level.
                 </p>
 
                 <div className="space-y-8">
                   <div>
-                    <h4 className="font-bold text-zinc-900 mb-4 border-b border-zinc-200 pb-2">Governance Mechanisms</h4>
+                    <h4 className="text-zinc-900 mb-4 border-b border-zinc-200 pb-2 font-tech font-semibold">Governance Mechanisms</h4>
                     <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                        {["Defined approval hierarchies", "Periodic performance reviews", "Group-aligned policy frameworks"].map((item, i) => (
                          <li key={i} className="flex items-center gap-2 text-zinc-700 text-sm">
@@ -367,7 +372,7 @@ export default function AboutClient() {
                     </ul>
                   </div>
                   <div>
-                    <h4 className="font-bold text-zinc-900 mb-4 border-b border-zinc-200 pb-2">Compliance Practices</h4>
+                    <h4 className="text-zinc-900 mb-4 border-b border-zinc-200 pb-2 font-tech font-semibold">Compliance Practices</h4>
                     <p className="text-zinc-600 text-sm leading-relaxed">
                       Compliance practices appropriate for international service delivery include contractual compliance, internal audits, and continuous monitoring mechanisms.
                     </p>
@@ -399,7 +404,7 @@ export default function AboutClient() {
            viewport={{ once: true }}
            className="max-w-4xl mx-auto"
          >
-           <h2 className="text-3xl md:text-4xl lg:text-5xl font-tech font-bold leading-tight mb-8">
+           <h2 className="text-3xl md:text-4xl lg:text-5xl leading-tight mb-8 font-tech font-semibold">
              "We are positioned as a scalable export services platform within an established international group structure, supporting operational stability and sustained foreign revenue generation through cross-border service delivery."
            </h2>
            <p className="text-white/80 font-medium tracking-widest uppercase text-sm">

@@ -114,15 +114,14 @@ export default function ContactClient() {
               <a
                 key={l.href}
                 href={l.href}
-                className={`relative px-4 py-2 text-sm font-extrabold tracking-widest uppercase transition-all duration-300 group flex items-center justify-center ${
-                  isActive ? "text-brand-primary" : "text-zinc-900"
-                }`}
+                className={`relative px-4 py-2 text-sm font-extrabold tracking-widest uppercase transition-all duration-300 group flex items-center justify-center ${isActive ? "text-brand-primary" : "text-zinc-900"
+                  }`}
               >
                 {/* Hover Pill Background */}
                 {!isActive && (
                   <span className="absolute inset-0 bg-zinc-100 rounded-xl scale-50 opacity-0 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-100 group-hover:opacity-100 z-0" />
                 )}
-                
+
                 {/* Active Pill Background */}
                 {isActive && (
                   <span className="absolute inset-0 bg-brand-primary/5 border border-brand-primary/10 rounded-xl z-0 shadow-[inset_0_0_12px_rgba(220,38,38,0.02)]" />
@@ -130,10 +129,10 @@ export default function ContactClient() {
 
                 {/* Text & Active Dot */}
                 <span className="relative z-10 flex items-center gap-2 transition-transform duration-300 group-hover:scale-105">
-                   {isActive && (
-                     <span className="w-1.5 h-1.5 rounded-full bg-brand-primary shadow-[0_0_8px_rgba(220,38,38,0.6)] animate-pulse" />
-                   )}
-                   <span className="group-hover:text-brand-primary transition-colors duration-300">{l.label}</span>
+                  {isActive && (
+                    <span className="w-1.5 h-1.5 rounded-full bg-brand-primary shadow-[0_0_8px_rgba(220,38,38,0.6)] animate-pulse" />
+                  )}
+                  <span className="group-hover:text-brand-primary transition-colors duration-300">{l.label}</span>
                 </span>
               </a>
             );
@@ -212,7 +211,7 @@ export default function ContactClient() {
               <span className="text-brand-primary font-bold tracking-widest uppercase text-sm">Get in Touch</span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-[1.1] font-tech mb-8 text-gray-900">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-[1.1] mb-8 text-gray-900 font-tech font-semibold">
               Let&apos;s Build the <br className="hidden md:block" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-primary-hover">
                 Future Together
@@ -235,9 +234,9 @@ export default function ContactClient() {
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg>
                 </div>
                 <div>
-                  <h3 className="text-sm font-bold tracking-widest uppercase text-gray-400 mb-1">Email Us</h3>
-                  <a href="mailto:hello@javanexus.com" className="text-xl font-medium text-gray-900 hover:text-brand-primary transition-colors">
-                    hello@javanexus.com
+                  <h3 className="text-sm tracking-widest uppercase text-gray-400 mb-1 font-tech font-semibold">Email Us</h3>
+                  <a href="mailto:info@javagnp.ae" className="text-xl font-medium text-gray-900 hover:text-brand-primary transition-colors">
+                    info@javagnp.ae
                   </a>
                 </div>
               </motion.div>
@@ -252,11 +251,14 @@ export default function ContactClient() {
                 <div className="w-12 h-12 rounded-2xl bg-white border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] flex items-center justify-center shrink-0 text-brand-primary group-hover:scale-110 group-hover:shadow-[0_8px_30px_rgba(220,38,38,0.1)] transition-all duration-300">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
                 </div>
-                <div>
-                  <h3 className="text-sm font-bold tracking-widest uppercase text-gray-400 mb-1">Call Us</h3>
-                  <a href="tel:+18001234567" className="text-xl font-medium text-gray-900 hover:text-brand-primary transition-colors">
-                    +1 (800) 123-4567
+                <div className="flex flex-col">
+                  <h3 className="text-sm tracking-widest uppercase text-gray-400 mb-1 font-tech font-semibold">Call Us</h3>
+                  <a href="tel:+971568226844" className="text-xl font-medium text-gray-900 hover:text-brand-primary transition-colors mb-1">
+                    Tel : +971 56 822 6844
                   </a>
+                  <span className="text-xl font-medium text-gray-900">
+                    Fax : +971 56 543 9655
+                  </span>
                 </div>
               </motion.div>
 
@@ -271,10 +273,11 @@ export default function ContactClient() {
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /><circle cx="12" cy="10" r="3" /></svg>
                 </div>
                 <div>
-                  <h3 className="text-sm font-bold tracking-widest uppercase text-gray-400 mb-1">Headquarters</h3>
+                  <h3 className="text-sm tracking-widest uppercase text-gray-400 mb-1 font-tech font-semibold">Headquarters</h3>
                   <p className="text-xl font-medium text-gray-900">
-                    100 Innovation Drive<br />
-                    Silicon Valley, CA 94025
+                    Amber Gem Tower, Mezzanine Floor<br />
+                    Sheikh Khalifa Street<br />
+                    Ajman, United Arab Emirates
                   </p>
                 </div>
               </motion.div>
@@ -298,7 +301,7 @@ export default function ContactClient() {
                   <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-green-50 flex items-center justify-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#10B981" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">Message Sent!</h3>
+                  <h3 className="text-xl text-gray-900 mb-2 font-tech font-semibold">Message Sent!</h3>
                   <p className="text-gray-500 mb-6">We&apos;ll get back to you within 24 hours.</p>
                   <button onClick={() => setFormState("idle")} className="text-brand-primary font-bold text-sm hover:underline cursor-pointer">Send another message</button>
                 </div>

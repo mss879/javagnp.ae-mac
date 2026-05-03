@@ -42,7 +42,7 @@ export default function Process() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-tech font-bold tracking-wide leading-[1.1] text-zinc-900"
+            className="text-4xl sm:text-5xl lg:text-6xl tracking-wide leading-[1.1] text-zinc-900 font-tech font-semibold"
           >
             How delivery <span className="text-brand-primary">works</span>
           </motion.h3>
@@ -89,7 +89,7 @@ export default function Process() {
               <span className="block text-zinc-300 font-mono text-xl sm:text-2xl font-bold mb-4 group-hover:text-brand-primary transition-colors duration-300">
                 {step.num}.
               </span>
-              <h4 className="text-2xl sm:text-3xl font-tech font-bold mb-4 text-zinc-900 group-hover:text-brand-primary transition-colors duration-300">
+              <h4 className="text-2xl sm:text-3xl mb-4 text-zinc-900 group-hover:text-brand-primary transition-colors duration-300 font-tech font-semibold">
                 {step.title}
               </h4>
               <p className="text-base sm:text-lg text-zinc-500 leading-relaxed">

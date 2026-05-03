@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { Outfit } from "next/font/google";
-import localFont from "next/font/local";
+import { Outfit, Rajdhani } from "next/font/google";
 import "./globals.css";
 import TrackingScript from "./components/TrackingScript";
 
@@ -21,10 +20,10 @@ const outfit = Outfit({
   weight: ["300", "400", "500", "600", "700", "800"],
 });
 
-const techFont = localFont({
-  src: "../../public/Virginia-Tech-Nameplate.otf",
+const techFont = Rajdhani({
   variable: "--font-tech",
-  display: "swap",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 export const viewport: Viewport = {
@@ -128,8 +127,8 @@ const organizationJsonLd = {
   address: [
     {
       "@type": "PostalAddress",
-      addressLocality: "Dubai",
-      addressRegion: "Dubai Internet City",
+      streetAddress: "Amber Gem Tower, Mezzanine Floor, Sheikh Khalifa Street",
+      addressLocality: "Ajman",
       addressCountry: "AE",
     },
     {
@@ -141,7 +140,7 @@ const organizationJsonLd = {
   ],
   contactPoint: {
     "@type": "ContactPoint",
-    email: "contact@javagnp.ae",
+    email: "info@javagnp.ae",
     contactType: "customer service",
     availableLanguage: ["English", "Arabic"],
   },
