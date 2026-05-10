@@ -13,8 +13,8 @@
   --background: #ffffff;
 }
 
-/* ── Tailwind v4 Theme Inline ── */
-@theme inline {
+/* ── Tailwind v4 Theme ── */
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-brand-primary: var(--brand-primary);
