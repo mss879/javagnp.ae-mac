@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Outfit, Rajdhani } from "next/font/google";
 import "./globals.css";
 import TrackingScript from "./components/TrackingScript";
+import FloatingWidget from "./components/FloatingWidget";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -204,6 +205,7 @@ export default function RootLayout({
             __html: JSON.stringify(websiteJsonLd),
           }}
         />
+        <FloatingWidget />
       </body>
     </html>
   );
