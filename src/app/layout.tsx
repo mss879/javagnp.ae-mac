@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     "JavaGNP is a premier global technology nexus headquartered in Dubai, specializing in cutting-edge IT solutions, AI-driven automation, secure cloud infrastructure, BPO, and digital marketing to empower enterprises worldwide.",
   keywords: [
     "JavaGNP",
-    "Java Global Nexus Platform",
+    "JAVA GLOBAL NEXUS PLATFORM FZE LLC",
     "IT solutions Dubai",
     "enterprise software development UAE",
     "AI automation services",
@@ -119,7 +119,7 @@ const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "JavaGNP",
-  legalName: "Java Global Nexus Platform (Pvt) Ltd",
+  legalName: "JAVA GLOBAL NEXUS PLATFORM FZE LLC",
   url: "https://javagnp.ae",
   logo: "https://javagnp.ae/logo.png",
   description:

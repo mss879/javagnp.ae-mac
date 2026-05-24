@@ -7,12 +7,12 @@ import AboutClient from "./AboutClient";
 export const metadata: Metadata = {
   title: "About JavaGNP – Dubai IT Company & Global Technology Partner",
   description:
-    "Learn about JavaGNP (Java Global Nexus Platform), a Dubai-headquartered technology firm with operations in the UAE and Sri Lanka. Discover our group structure, global trade networks, and corporate governance.",
+    "Learn about JavaGNP (JAVA GLOBAL NEXUS PLATFORM FZE LLC), a Dubai-headquartered technology firm with operations in the UAE and Sri Lanka. Discover our group structure, global trade networks, and corporate governance.",
   keywords: [
     "about JavaGNP",
     "Dubai IT company",
     "UAE tech firm",
-    "Java Global Nexus Platform",
+    "JAVA GLOBAL NEXUS PLATFORM FZE LLC",
     "global trade technology partner",
     "Sri Lanka IT operations",
     "Ras Al Khaimah Free Zone",
@@ -44,11 +44,11 @@ const aboutJsonLd = {
   name: "About JavaGNP",
   url: "https://javagnp.ae/about",
   description:
-    "Java Global Nexus Platform (Pvt) Ltd is a group-aligned operating entity within an international services framework, headquartered in Dubai with operations in Sri Lanka.",
+    "JAVA GLOBAL NEXUS PLATFORM FZE LLC is a group-aligned operating entity within an international services framework, headquartered in Dubai with operations in Sri Lanka.",
   mainEntity: {
     "@type": "Organization",
     name: "JavaGNP",
-    legalName: "Java Global Nexus Platform (Pvt) Ltd",
+    legalName: "JAVA GLOBAL NEXUS PLATFORM FZE LLC",
     url: "https://javagnp.ae",
     foundingDate: "2023",
     numberOfEmployees: {

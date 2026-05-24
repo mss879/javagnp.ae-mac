@@ -226,7 +226,7 @@ export default function AboutClient() {
             </h1>
 
             <p className="text-lg md:text-xl text-zinc-600 font-sans leading-relaxed max-w-2xl border-l-2 border-brand-primary/30 pl-6 py-2 bg-white/40 backdrop-blur-sm rounded-r-xl">
-              Java Global Nexus Platform (Pvt) Ltd is established as a group-aligned operating entity within an international services framework.
+              JAVA GLOBAL NEXUS PLATFORM FZE LLC is established as a group-aligned operating entity within an international services framework.
             </p>
           </motion.div>
         </div>
@@ -513,7 +513,7 @@ export default function AboutClient() {
               "We are positioned as a scalable export services platform within an established international group structure, supporting operational stability and sustained foreign revenue generation through cross-border service delivery."
             </h2>
             <p className="text-white/80 font-medium tracking-widest uppercase text-xs md:text-sm">
-              Java Global Nexus Platform (Pvt) Ltd
+              JAVA GLOBAL NEXUS PLATFORM FZE LLC
             </p>
           </motion.div>
         </div>

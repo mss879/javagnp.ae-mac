@@ -132,7 +132,7 @@ export default function PrivacyClient() {
                 <strong>Effective Date:</strong> January 1, 2024
               </p>
               <p>
-                At Java Global Nexus Platform (Pvt) Ltd ("JavaGNP", "we", "our", or "us"), we are committed to protecting and respecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website (javagnp.ae) or engage with our enterprise IT solutions, AI innovation, and global managed services.
+                At JAVA GLOBAL NEXUS PLATFORM FZE LLC ("JavaGNP", "we", "our", or "us"), we are committed to protecting and respecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website (javagnp.ae) or engage with our enterprise IT solutions, AI innovation, and global managed services.
               </p>
               
               <h2 className="text-2xl text-zinc-900 mt-12 mb-4 font-tech font-semibold">1. Information We Collect</h2>

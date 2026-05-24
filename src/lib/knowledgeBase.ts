@@ -1,6 +1,6 @@
 export const JAVA_GNP_KNOWLEDGE_BASE = `
 # Company Identity
-Name: JavaGNP (Java Global Nexus Platform (Pvt) Ltd)
+Name: JavaGNP (JAVA GLOBAL NEXUS PLATFORM FZE LLC)
 Description: A premier Dubai-headquartered global technology company delivering enterprise IT solutions, AI innovation, cloud & cybersecurity, BPO, and digital marketing services worldwide.
 Slogan/Tagline: Transforming Ideas into Digital Reality
 Core Philosophy: Global Expertise, Local Excellence. Operating as a global delivery and execution hub based in Dubai.
