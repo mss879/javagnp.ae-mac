@@ -22,13 +22,77 @@ const COMMODITIES = [
   { title: "Corn & Soybeans", desc: "Large-scale trading and logistics coordination of yellow corn and soybeans within robust agricultural commodity networks, supporting global food security.", image: "/commodity_corn_soy_1777705183576.webp" }
 ];
 
+const PortCityLogo = () => (
+  <svg viewBox="0 0 120 120" className="w-16 h-16 object-contain" fill="none" xmlns="http://www.w3.org/2000/svg">
+    {/* Port City Colombo Logo Symbols */}
+    <g transform="translate(10, 0)">
+      {/* Left petal (purple/magenta) */}
+      <path d="M50 15C36 32 24 50 30 68C33 79 46 82 50 82C40 73 35 56 43 33C45 27 48 20 50 15Z" fill="url(#portcity-purple)" />
+      {/* Right petal (blue) */}
+      <path d="M50 15C64 32 76 50 70 68C67 79 54 82 50 82C60 73 65 56 57 33C55 27 52 20 50 15Z" fill="url(#portcity-blue)" />
+      {/* Center petal (cyan/teal) */}
+      <path d="M50 8C45 25 43 45 46 68C48 76 52 76 54 68C57 45 55 25 50 8Z" fill="url(#portcity-cyan)" />
+    </g>
+    
+    {/* Port City Colombo Text below symbol */}
+    <text x="60" y="98" textAnchor="middle" fill="#0c4a6e" fontSize="6.5" fontWeight="900" letterSpacing="0.8" fontFamily="system-ui, -apple-system, sans-serif">PORT CITY</text>
+    <text x="60" y="106" textAnchor="middle" fill="#00b4d8" fontSize="5.5" fontWeight="700" letterSpacing="0.5" fontFamily="system-ui, -apple-system, sans-serif">COLOMBO</text>
+
+    <defs>
+      <linearGradient id="portcity-purple" x1="24" y1="15" x2="50" y2="82" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stopColor="#ec4899" />
+        <stop offset="100%" stopColor="#8b5cf6" />
+      </linearGradient>
+      <linearGradient id="portcity-cyan" x1="43" y1="8" x2="57" y2="68" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stopColor="#06b6d4" />
+        <stop offset="100%" stopColor="#0d9488" />
+      </linearGradient>
+      <linearGradient id="portcity-blue" x1="76" y1="15" x2="50" y2="82" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stopColor="#3b82f6" />
+        <stop offset="100%" stopColor="#1e3a8a" />
+      </linearGradient>
+    </defs>
+  </svg>
+);
+
 const LICENSES = [
-  { 
-    country: "Sri Lanka", 
-    zone: "Department of the Registrar of Companies",
+  {
+    country: "United Arab Emirates",
+    zone: "Dubai Free Zone Authority",
+    logo: "/dubai-logo.webp",
+    logoType: "image",
     numbers: [
-      { label: "Registration No.", val: "PV 00362384" }
-    ]
+      { label: "LICENSE NUMBER", val: "2624115323888" },
+      { label: "REGISTRATION NUMBER", val: "2624115323888" },
+      { label: "COMPANY NAME", val: "JAVA GLOBAL NEXUS PLATFORM FZE LLC" }
+    ],
+    docLink: "/Business License.pdf"
+  },
+
+  {
+    country: "Sri Lanka",
+    zone: "Department of Register of Companies",
+    logo: "/Goverment Logo.jpg.jpeg",
+    logoType: "image",
+    numbers: [
+      { label: "REGISTRATION NO.", val: "PV 00362384" }
+    ],
+    docLink: "/Certificate of Incorporation.pdf"
+  },
+  {
+    country: "Sri Lanka",
+    zone: "Inland Revenue Department — Source Tax Compliance Unit",
+    subNote: "Confirmation Certificate of the Registration of Bookmaker through an agent or via internet with or without the use of live telecast facilities.",
+    logo: "/Goverment Logo.jpg.jpeg",
+    logoType: "image",
+    numbers: [
+      { label: "REFERENCE NO.", val: "TPR / BLT / 2026 / 1049" },
+      { label: "TAXPAYER IDENTIFICATION NO. (TIN)", val: "243204429" },
+      { label: "BETTING & GAMING FILE NO.", val: "BLT – 1049" },
+      { label: "TYPE OF BUSINESS", val: "Through Via Internet (Online)" }
+    ],
+    footerNote: "Registered under the Betting and Gaming Levy Act, No. 40 of 1988 and the Betting and Gaming Levy (Amendment) Act, No. 11 of 2023.",
+    docLink: "/TIN.pdf"
   }
 ];
 
@@ -296,31 +360,70 @@ export default function AboutClient() {
              </p>
           </motion.div>
 
-          <div className="flex justify-center w-full max-w-4xl mx-auto">
+          <div className="flex flex-col gap-8 w-full max-w-5xl mx-auto">
             {LICENSES.map((lic, idx) => (
               <motion.div 
                 key={idx}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                className="w-full p-8 md:p-10 rounded-3xl bg-white border border-zinc-200/60 shadow-sm flex flex-col md:flex-row items-center md:justify-between gap-8"
+                transition={{ delay: idx * 0.1, duration: 0.6 }}
+                className="w-full p-8 sm:p-10 rounded-[32px] bg-white border border-zinc-200/60 shadow-sm hover:shadow-md hover:border-brand-primary/20 transition-all duration-300 group"
               >
-                 <div className="flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-6 w-full md:w-auto">
-                   <Image src="/Goverment Logo.jpg.jpeg" alt="Government Logo" width={80} height={80} className="object-contain rounded-md shrink-0 bg-white" />
-                   <div className="flex flex-col justify-center">
-                     <h3 className="text-xl md:text-2xl text-brand-primary font-tech font-semibold mb-2">{lic.country}</h3>
-                     <p className="text-zinc-500 font-medium text-sm md:text-base leading-snug max-w-xs">{lic.zone}</p>
-                   </div>
-                 </div>
-                 <div className="flex gap-8 w-full md:w-auto justify-center md:justify-start border-t md:border-t-0 md:border-l border-zinc-100 pt-6 md:pt-0 md:pl-10">
-                    {lic.numbers.map((num, i) => (
-                      <div key={i} className="text-center md:text-left">
-                        <p className="text-xs md:text-sm text-zinc-400 uppercase tracking-wider mb-2">{num.label}</p>
-                        <p className="text-zinc-900 font-mono font-semibold text-xl md:text-2xl">{num.val}</p>
-                      </div>
-                    ))}
-                 </div>
+                <div className="flex flex-col sm:flex-row items-start gap-6 w-full">
+                  {/* Logo Box */}
+                  <div className="w-24 h-24 sm:w-28 sm:h-28 flex items-center justify-center bg-white border border-zinc-100 rounded-3xl shadow-sm shrink-0 p-3 transition-transform duration-300 group-hover:scale-105">
+                    {lic.logoType === "svg" ? (
+                      <PortCityLogo />
+                    ) : (
+                      <Image 
+                        src={lic.logo || "/Goverment Logo.jpg.jpeg"} 
+                        alt={`${lic.country} Logo`} 
+                        width={112} 
+                        height={112} 
+                        className="object-contain w-full h-full" 
+                      />
+                    )}
+                  </div>
+
+                  {/* Text Details & Fields */}
+                  <div className="flex-1 w-full">
+                    <div className="flex flex-col">
+                      <h3 className="text-2xl text-zinc-900 font-tech font-semibold tracking-tight">
+                        {lic.country}
+                      </h3>
+                      <p className="text-zinc-500 font-medium text-sm sm:text-base leading-snug mt-1">
+                        {lic.zone}
+                      </p>
+                      {lic.subNote && (
+                        <p className="text-xs sm:text-sm text-zinc-400 italic mt-2 leading-relaxed max-w-2xl">
+                          {lic.subNote}
+                        </p>
+                      )}
+                    </div>
+
+                    {/* Styled fields in grid */}
+                    <div className="flex flex-wrap gap-x-6 gap-y-4 mt-6">
+                      {lic.numbers.map((num, i) => (
+                        <div key={i} className="flex flex-col">
+                          <span className="text-[10px] md:text-[11px] text-zinc-400 font-extrabold tracking-wider uppercase mb-1.5 leading-none">
+                            {num.label}
+                          </span>
+                          <div className="bg-zinc-50 border border-zinc-200/60 rounded-xl px-4 py-2.5 text-zinc-800 font-mono font-bold text-sm md:text-base shadow-[inset_0_1px_2px_rgba(0,0,0,0.02)] inline-block select-all">
+                            {num.val}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Footer Note (if exists) */}
+                    {lic.footerNote && (
+                      <p className="text-[11px] sm:text-xs text-zinc-400 italic mt-6 pt-4 border-t border-zinc-100 max-w-2xl leading-relaxed">
+                        {lic.footerNote}
+                      </p>
+                    )}
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -395,20 +498,25 @@ export default function AboutClient() {
       {/* ══════════════════════════════════════════
           7. FOOTER CTA
          ══════════════════════════════════════════ */}
-      <section className="relative w-full py-24 bg-brand-primary text-white z-20 text-center px-6">
-         <motion.div
-           initial={{ opacity: 0, y: 20 }}
-           whileInView={{ opacity: 1, y: 0 }}
-           viewport={{ once: true }}
-           className="max-w-4xl mx-auto"
-         >
-           <h2 className="text-3xl md:text-4xl lg:text-5xl leading-tight mb-8 font-tech font-semibold">
-             "We are positioned as a scalable export services platform within an established international group structure, supporting operational stability and sustained foreign revenue generation through cross-border service delivery."
-           </h2>
-           <p className="text-white/80 font-medium tracking-widest uppercase text-sm">
-             Java Global Nexus Platform (Pvt) Ltd
-           </p>
-         </motion.div>
+      <section className="relative w-full py-20 bg-white z-20 text-center px-6 overflow-hidden">
+        <div className="max-w-[1200px] mx-auto relative z-10">
+          <motion.div
+             initial={{ opacity: 0, y: 20 }}
+             whileInView={{ opacity: 1, y: 0 }}
+             viewport={{ once: true }}
+             className="bg-brand-primary text-white p-12 md:p-20 rounded-[40px] shadow-xl relative overflow-hidden"
+          >
+            {/* Subtle background light overlay */}
+            <div className="absolute inset-0 bg-[linear-gradient(to_bottom_right,rgba(255,255,255,0.05),transparent)] pointer-events-none" />
+            
+            <h2 className="text-2xl md:text-3xl lg:text-4xl leading-relaxed mb-8 font-tech font-semibold max-w-4xl mx-auto">
+              "We are positioned as a scalable export services platform within an established international group structure, supporting operational stability and sustained foreign revenue generation through cross-border service delivery."
+            </h2>
+            <p className="text-white/80 font-medium tracking-widest uppercase text-xs md:text-sm">
+              Java Global Nexus Platform (Pvt) Ltd
+            </p>
+          </motion.div>
+        </div>
       </section>
 
       <Footer />

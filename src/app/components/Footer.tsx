@@ -109,13 +109,17 @@ export default function Footer() {
                 Global HQ
               </h4>
               <address className="text-zinc-300 text-sm not-italic leading-relaxed">
-                Amber Gem Tower, Mezzanine Floor<br />
-                Sheikh Khalifa Street<br />
-                Ajman, United Arab Emirates<br /><br />
+                Ajman Ventures Centre Free Zone,<br />
+                BC-893580, 26th Floor, Amber Gem Tower,<br />
+                Sheikh Khalifa Street, Ajman,<br />
+                United Arab Emirates<br /><br />
                 Tel: +971 56 822 6844<br />
                 Fax: +971 56 543 9655<br /><br />
-                <a href="mailto:info@javagnp.ae" className="hover:text-brand-primary transition-colors duration-300">
+                <a href="mailto:info@javagnp.ae" className="hover:text-brand-primary transition-colors duration-300 block mb-1">
                   info@javagnp.ae
+                </a>
+                <a href="mailto:info@javagnp.lk" className="hover:text-brand-primary transition-colors duration-300 block">
+                  info@javagnp.lk
                 </a>
               </address>
             </div>

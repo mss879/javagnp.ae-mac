@@ -233,10 +233,13 @@ export default function ContactClient() {
                 <div className="w-12 h-12 rounded-2xl bg-white border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] flex items-center justify-center shrink-0 text-brand-primary group-hover:scale-110 group-hover:shadow-[0_8px_30px_rgba(220,38,38,0.1)] transition-all duration-300">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg>
                 </div>
-                <div>
+                <div className="flex flex-col">
                   <h3 className="text-sm tracking-widest uppercase text-gray-400 mb-1 font-tech font-semibold">Email Us</h3>
-                  <a href="mailto:info@javagnp.ae" className="text-xl font-medium text-gray-900 hover:text-brand-primary transition-colors">
+                  <a href="mailto:info@javagnp.ae" className="text-xl font-medium text-gray-900 hover:text-brand-primary transition-colors block mb-1">
                     info@javagnp.ae
+                  </a>
+                  <a href="mailto:info@javagnp.lk" className="text-xl font-medium text-gray-900 hover:text-brand-primary transition-colors block">
+                    info@javagnp.lk
                   </a>
                 </div>
               </motion.div>
@@ -274,10 +277,11 @@ export default function ContactClient() {
                 </div>
                 <div>
                   <h3 className="text-sm tracking-widest uppercase text-gray-400 mb-1 font-tech font-semibold">Headquarters</h3>
-                  <p className="text-xl font-medium text-gray-900">
-                    Amber Gem Tower, Mezzanine Floor<br />
-                    Sheikh Khalifa Street<br />
-                    Ajman, United Arab Emirates
+                  <p className="text-xl font-medium text-gray-900 leading-relaxed">
+                    Ajman Ventures Centre Free Zone,<br />
+                    BC-893580, 26th Floor, Amber Gem Tower,<br />
+                    Sheikh Khalifa Street, Ajman,<br />
+                    United Arab Emirates
                   </p>
                 </div>
               </motion.div>

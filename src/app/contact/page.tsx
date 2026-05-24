@@ -61,10 +61,16 @@ const contactJsonLd = {
         contactType: "customer service",
         availableLanguage: ["English"],
       },
+      {
+        "@type": "ContactPoint",
+        email: "info@javagnp.lk",
+        contactType: "customer service",
+        availableLanguage: ["English"],
+      },
     ],
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Amber Gem Tower, Mezzanine Floor, Sheikh Khalifa Street",
+      streetAddress: "Ajman Ventures Centre Free Zone, BC-893580, 26th Floor, Amber Gem Tower, Sheikh Khalifa Street",
       addressLocality: "Ajman",
       addressCountry: "AE",
     },

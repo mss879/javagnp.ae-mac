@@ -128,7 +128,7 @@ const organizationJsonLd = {
   address: [
     {
       "@type": "PostalAddress",
-      streetAddress: "Amber Gem Tower, Mezzanine Floor, Sheikh Khalifa Street",
+      streetAddress: "Ajman Ventures Centre Free Zone, BC-893580, 26th Floor, Amber Gem Tower, Sheikh Khalifa Street",
       addressLocality: "Ajman",
       addressCountry: "AE",
     },
@@ -139,12 +139,20 @@ const organizationJsonLd = {
       addressCountry: "LK",
     },
   ],
-  contactPoint: {
-    "@type": "ContactPoint",
-    email: "info@javagnp.ae",
-    contactType: "customer service",
-    availableLanguage: ["English", "Arabic"],
-  },
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      email: "info@javagnp.ae",
+      contactType: "customer service",
+      availableLanguage: ["English", "Arabic"],
+    },
+    {
+      "@type": "ContactPoint",
+      email: "info@javagnp.lk",
+      contactType: "customer service",
+      availableLanguage: ["English"],
+    }
+  ],
   sameAs: [
     "https://www.linkedin.com/company/javagnp",
     "https://twitter.com/javagnp",
