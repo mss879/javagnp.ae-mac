@@ -55,7 +55,23 @@ const PortCityLogo = () => (
   </svg>
 );
 
-const LICENSES = [
+interface LicenseNumber {
+  label: string;
+  val: string;
+}
+
+interface LicenseItem {
+  country: string;
+  zone: string;
+  logo: string;
+  logoType: string;
+  numbers: LicenseNumber[];
+  docLink: string;
+  subNote?: string;
+  footerNote?: string;
+}
+
+const LICENSES: LicenseItem[] = [
   {
     country: "United Arab Emirates",
     zone: "Dubai Free Zone Authority",
