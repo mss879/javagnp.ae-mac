@@ -82,16 +82,12 @@ const LICENSES = [
   {
     country: "Sri Lanka",
     zone: "Inland Revenue Department — Source Tax Compliance Unit",
-    subNote: "Confirmation Certificate of the Registration of Bookmaker through an agent or via internet with or without the use of live telecast facilities.",
     logo: "/Goverment Logo.jpg.jpeg",
     logoType: "image",
     numbers: [
-      { label: "REFERENCE NO.", val: "TPR / BLT / 2026 / 1049" },
-      { label: "TAXPAYER IDENTIFICATION NO. (TIN)", val: "243204429" },
-      { label: "BETTING & GAMING FILE NO.", val: "BLT – 1049" },
-      { label: "TYPE OF BUSINESS", val: "Through Via Internet (Online)" }
+      { label: "TAXPAYER IDENTIFICATION NO. (TIN)", val: "243204429" }
     ],
-    footerNote: "Registered under the Betting and Gaming Levy Act, No. 40 of 1988 and the Betting and Gaming Levy (Amendment) Act, No. 11 of 2023.",
+    footerNote: "This Taxpayer Identification Number is issued as per section 102 (4) of the Inland Revenue Act, No. 24 of 2017.",
     docLink: "/TIN.pdf"
   }
 ];
