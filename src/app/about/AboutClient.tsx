@@ -97,7 +97,7 @@ const LICENSES: LicenseItem[] = [
   },
   {
     country: "Sri Lanka",
-    zone: "Inland Revenue Department — Source Tax Compliance Unit",
+    zone: "Inland Revenue Department",
     logo: "/Goverment Logo.jpg.jpeg",
     logoType: "image",
     numbers: [
