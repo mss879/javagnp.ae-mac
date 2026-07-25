@@ -67,14 +67,17 @@ export default function AdminLoginClient() {
       <div className="relative z-10 w-full max-w-md px-6">
         {/* Logo */}
         <div className="flex justify-center mb-8">
-          <a href="/" className="inline-block">
+          <a href="/" className="relative inline-flex items-center pr-2">
             <Image
               src="/logo.png"
-              alt="JavaGNP"
+              alt="JavaGNP™ Logo"
               width={180}
               height={50}
               className="h-12 w-auto object-contain drop-shadow-sm"
             />
+            <span className="absolute top-0.5 -right-1 text-xs sm:text-sm font-black text-brand-primary font-sans leading-none select-none">
+              ™
+            </span>
           </a>
         </div>
 

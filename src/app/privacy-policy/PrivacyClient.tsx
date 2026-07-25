@@ -27,8 +27,11 @@ export default function PrivacyClient() {
           DESKTOP NAV
          ══════════════════════════════════════════ */}
       <div className="hidden xl:flex absolute top-0 left-0 bg-white rounded-br-[32px] z-[60] pt-2 pl-4 pr-5 pb-2 items-center justify-center shadow-sm border-b border-r border-zinc-100">
-        <Link href="/" className="flex items-center">
-          <Image src="/logo.png" alt="Company Logo" width={200} height={56} className="h-14 w-auto object-contain" />
+        <Link href="/" className="relative flex items-center pr-2">
+          <Image src="/logo.png" alt="JavaGNP™ Logo" width={200} height={56} className="h-14 w-auto object-contain" />
+          <span className="absolute top-0.5 -right-1 text-xs sm:text-sm font-black text-brand-primary font-sans leading-none select-none">
+            ™
+          </span>
         </Link>
         <CurvedCorner size={24} rotation={0} className="top-0 -right-[23.5px] text-white" />
         <CurvedCorner size={24} rotation={0} className="left-0 -bottom-[23.5px] text-white" />
@@ -80,8 +83,11 @@ export default function PrivacyClient() {
           MOBILE NAV
          ══════════════════════════════════════════ */}
       <div className="xl:hidden fixed top-0 left-0 w-full bg-white z-[60] flex items-center justify-between px-5 py-2 border-b border-zinc-100 shadow-sm">
-        <Link href="/" className="flex items-center shrink-0">
-          <Image src="/logo.png" alt="Company Logo" width={180} height={48} className="h-12 w-auto object-contain" />
+        <Link href="/" className="relative flex items-center shrink-0 pr-2">
+          <Image src="/logo.png" alt="JavaGNP™ Logo" width={180} height={48} className="h-12 w-auto object-contain" />
+          <span className="absolute top-0.5 -right-1 text-xs font-black text-brand-primary font-sans leading-none select-none">
+            ™
+          </span>
         </Link>
         <button 
           onClick={() => setIsMobileMenuOpen(true)}

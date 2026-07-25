@@ -50,14 +50,17 @@ export default function Footer() {
             {/* Column 1: Brand & About */}
             <div className="space-y-6 lg:pr-8">
               <Link href="/" className="inline-block">
-                <div className="bg-white p-3 rounded-2xl shadow-xl inline-flex items-center justify-center w-fit h-fit">
+                <div className="relative bg-white p-3 rounded-2xl shadow-xl inline-flex items-center justify-center w-fit h-fit pr-3">
                   <Image 
                     src="/logo.png" 
-                    alt="JavaGNP Logo" 
+                    alt="JavaGNP™ Logo" 
                     width={200} 
                     height={64} 
                     className="h-14 sm:h-16 w-auto object-contain" 
                   />
+                  <span className="absolute top-2.5 right-1.5 text-sm sm:text-base font-black text-brand-primary font-sans leading-none select-none">
+                    ™
+                  </span>
                 </div>
               </Link>
               <p className="text-zinc-300 text-sm leading-relaxed">

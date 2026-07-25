@@ -169,18 +169,23 @@ export default function Preloader() {
 
         {/* Phase 3 & 4: Expansion Line & Identity Reveal */}
         <div className="absolute flex flex-col items-center">
-          <div className="flex gap-2 sm:gap-4 overflow-hidden px-4 pb-2">
+          <div className="flex gap-2 sm:gap-4 overflow-visible px-4 pt-4 pb-2 items-baseline">
             {words.map((w, i) => (
               <span
                 key={i}
                 ref={(el) => {
                   wordsRef.current[i] = el;
                 }}
-                className={`text-xl sm:text-3xl md:text-4xl font-tech font-bold tracking-widest inline-block uppercase opacity-0 translate-y-[30px] ${
+                className={`text-xl sm:text-3xl md:text-4xl font-tech font-bold tracking-widest inline-flex items-start uppercase opacity-0 translate-y-[30px] ${
                   w === "JAVA" ? "text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-primary-hover" : "text-white"
                 }`}
               >
-                {w}
+                <span>{w}</span>
+                {w === "PLATFORM" && (
+                  <span className="text-xs sm:text-base text-brand-primary font-sans font-black ml-0.5 -mt-1 select-none leading-none">
+                    ™
+                  </span>
+                )}
               </span>
             ))}
           </div>
