@@ -56,7 +56,7 @@ const websiteJsonLd = {
     "@type": "Organization",
     name: "JavaGNP",
     url: "https://javagnp.ae",
-    logo: "https://javagnp.ae/logo.png",
+    logo: "https://javagnp.ae/new-logo.png",
   },
   creator: {
     "@type": "Organization",

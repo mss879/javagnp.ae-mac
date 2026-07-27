@@ -52,15 +52,12 @@ export default function Footer() {
               <Link href="/" className="inline-block">
                 <div className="relative bg-white p-3 rounded-2xl shadow-xl inline-flex items-center justify-center w-fit h-fit pr-3">
                   <Image 
-                    src="/logo.png" 
-                    alt="JavaGNP™ Logo" 
+                    src="/new-logo.png" 
+                    alt="JavaGNP Logo" 
                     width={200} 
                     height={64} 
                     className="h-14 sm:h-16 w-auto object-contain" 
                   />
-                  <span className="absolute top-2.5 right-1.5 text-sm sm:text-base font-black text-brand-primary font-sans leading-none select-none">
-                    ™
-                  </span>
                 </div>
               </Link>
               <p className="text-zinc-300 text-sm leading-relaxed">

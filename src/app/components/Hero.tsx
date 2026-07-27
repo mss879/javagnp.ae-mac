@@ -105,15 +105,12 @@ export default function Hero() {
         <div className="hidden xl:flex absolute top-6 left-6 bg-white rounded-2xl z-[60] px-5 py-2 items-center justify-center pointer-events-auto shadow-xl">
           <a href="/" className="relative flex items-center pr-2">
             <Image
-              src="/logo.png"
-              alt="JavaGNP™ Logo"
+              src="/new-logo.png"
+              alt="JavaGNP Logo"
               width={200}
               height={56}
               className="h-12 w-auto object-contain"
             />
-            <span className="absolute top-0.5 -right-1 text-xs sm:text-sm font-black text-brand-primary font-sans leading-none select-none">
-              ™
-            </span>
           </a>
         </div>
 
@@ -138,15 +135,12 @@ export default function Hero() {
         <div className="xl:hidden absolute top-0 left-0 w-full bg-white z-[60] flex items-center justify-between px-5 py-2 pointer-events-auto border-b border-gray-100 shadow-sm">
           <a href="/" className="relative flex items-center shrink-0 pr-2">
             <Image
-              src="/logo.png"
-              alt="JavaGNP™ Logo"
+              src="/new-logo.png"
+              alt="JavaGNP Logo"
               width={180}
               height={48}
               className="h-12 w-auto object-contain"
             />
-            <span className="absolute top-0.5 -right-1 text-xs font-black text-brand-primary font-sans leading-none select-none">
-              ™
-            </span>
           </a>
 
           <div className="flex items-center gap-3">

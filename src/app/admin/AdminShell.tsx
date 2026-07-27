@@ -103,15 +103,12 @@ export default function AdminLayout({
         <div className="px-6 py-6 border-b border-gray-100 flex items-center justify-between">
           <a href="/" target="_blank" rel="noopener noreferrer" className="relative flex items-center pr-2">
             <Image
-              src="/logo.png"
-              alt="JavaGNP™ Logo"
+              src="/new-logo.png"
+              alt="JavaGNP Logo"
               width={160}
               height={44}
               className="h-9 w-auto object-contain"
             />
-            <span className="absolute top-0.5 -right-1 text-xs font-black text-brand-primary font-sans leading-none select-none">
-              ™
-            </span>
           </a>
           <div className="lg:hidden">
             <button onClick={() => setSidebarOpen(false)} className="p-2 -mr-2 text-gray-400 hover:text-gray-600 rounded-lg hover:bg-gray-50">
@@ -194,8 +191,8 @@ export default function AdminLayout({
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="18" x2="21" y2="18" /></svg>
           </button>
           <Image
-            src="/logo.png"
-            alt="JavaGNP™ Logo"
+            src="/new-logo.png"
+            alt="JavaGNP Logo"
             width={120}
             height={32}
             className="h-7 w-auto object-contain"

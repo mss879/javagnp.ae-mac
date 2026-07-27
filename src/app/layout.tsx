@@ -121,7 +121,7 @@ const organizationJsonLd = {
   name: "JavaGNP",
   legalName: "JAVA GLOBAL NEXUS PLATFORM FZE LLC",
   url: "https://javagnp.ae",
-  logo: "https://javagnp.ae/logo.png",
+  logo: "https://javagnp.ae/new-logo.png",
   description:
     "A premier Dubai-headquartered global technology company delivering enterprise IT solutions, AI innovation, cloud & cybersecurity, BPO, and digital marketing services worldwide.",
   foundingDate: "2023",
